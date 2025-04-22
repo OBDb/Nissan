@@ -13,7 +13,7 @@ permissions:
 
 # Make prefixes for this repo
 env:
-  FILTER_ARGS: --filter-prefix=Nissan- --filter-prefix=INFINIT- --filter-prefix=INFINIT-
+  FILTER_ARGS: --filter-prefix=Nissan- --filter-prefix=INFINITI- --filter-prefix=Datsun-
   SIGNAL_PREFIX: NISSAN
 
 concurrency:
