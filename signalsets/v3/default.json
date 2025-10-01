@@ -1,27 +1,92 @@
 { "commands": [
+{ "hdr": "707", "rax": "727", "dbg": true, "cmd": {"22": "0103"}, "freq": 0.1,
+  "signals": [
+    {"id": "NISSAN_TURN_SIGNAL_RIGHT", "path": "Control", "fmt": {          "len": 1, "max": 1, "unit": "offon" }, "name": "Right turn signal"},
+    {"id": "NISSAN_TURN_SIGNAL_LEFT",  "path": "Control", "fmt": {"bix": 1, "len": 1, "max": 1, "unit": "offon" }, "name": "Left turn signal"}
+  ]},
+{ "hdr": "723", "rax": "735", "dbg": true, "cmd": {"22": "0101"}, "freq": 0.1,
+  "signals": [
+    {"id": "NISSAN_YAW_RATE", "path": "Control", "fmt": { "len": 16, "max": 3276.7, "min": -3276.8, "div": 10, "sign": true, "unit": "degrees" }, "name": "Yaw rate"}
+  ]},
+{ "hdr": "723", "rax": "735", "dbg": true, "cmd": {"22": "0107"}, "freq": 0.1,
+  "signals": [
+    {"id": "NISSAN_RADAR_DISTANCE", "path": "Cruise control", "fmt": { "len": 16, "max": 6553.5, "div": 10, "unit": "meters" }, "name": "Radar distance"}
+  ]},
+{ "hdr": "723", "rax": "735", "dbg": true, "cmd": {"22": "0108"}, "freq": 0.1,
+  "signals": [
+    {"id": "NISSAN_RADAR_SPEED", "path": "Cruise control", "fmt": { "len": 16, "max": 3276.7, "min": -3276.8, "div": 10, "sign": true, "unit": "metersPerSecond" }, "name": "Relative speed"}
+  ]},
+{ "hdr": "723", "rax": "735", "dbg": true, "cmd": {"22": "0110"}, "freq": 0.1,
+  "signals": [
+    {"id": "NISSAN_STEER_ANGLE", "path": "Control", "fmt": { "len": 16, "max": 3276.7, "min": -3276.8, "div": 10, "sign": true, "unit": "degrees" }, "name": "Steering wheel angle", "description": "Negative values are clockwise, positive values are counter-clockwise."}
+  ]},
 { "hdr": "743", "rax": "763", "fcm1": true, "dbg": true, "cmd": {"22": "0E01"}, "freq": 1,
   "signals": [
-    {"id": "NISSAN_ODO", "path": "Trips", "fmt": { "len": 24, "max": 16777215, "unit": "kilometers" }, "name": "Odometer", "suggestedMetric": "odometer"}
+    {"id": "NISSAN_ODO", "path": "Trips", "fmt": { "len": 24, "max": 16777215, "unit": "miles" }, "name": "Odometer", "suggestedMetric": "odometer"}
   ]},
 { "hdr": "743", "rax": "763", "fcm1": true, "dbg": true, "cmd": {"22": "0E25"}, "freq": 15,
   "signals": [
-    {"id": "NISSAN_TP_FR", "path": "Tires", "fmt": { "len": 8, "max": 439.5, "mul": 1.7236894, "unit": "kilopascal" }, "name": "Front right tire pressure", "suggestedMetric": "frontRightTirePressure"}
+    {"id": "NISSAN_TP_FR_V2", "path": "Tires", "fmt": { "len": 8, "max": 439.5, "mul": 1.7236894, "unit": "kilopascal" }, "name": "Front right tire pressure", "suggestedMetric": "frontRightTirePressure"}
   ]},
 { "hdr": "743", "rax": "763", "fcm1": true, "dbg": true, "cmd": {"22": "0E26"}, "freq": 15,
   "signals": [
-    {"id": "NISSAN_TP_FL", "path": "Tires", "fmt": { "len": 8, "max": 439.5, "mul": 1.7236894, "unit": "kilopascal" }, "name": "Front left tire pressure", "suggestedMetric": "frontLeftTirePressure"}
+    {"id": "NISSAN_TP_FL_V2", "path": "Tires", "fmt": { "len": 8, "max": 439.5, "mul": 1.7236894, "unit": "kilopascal" }, "name": "Front left tire pressure", "suggestedMetric": "frontLeftTirePressure"}
   ]},
 { "hdr": "743", "rax": "763", "fcm1": true, "dbg": true, "cmd": {"22": "0E27"}, "freq": 15,
   "signals": [
-    {"id": "NISSAN_TP_RR", "path": "Tires", "fmt": { "len": 8, "max": 439.5, "mul": 1.7236894, "unit": "kilopascal" }, "name": "Rear right tire pressure", "suggestedMetric": "rearRightTirePressure"}
+    {"id": "NISSAN_TP_RR_V2", "path": "Tires", "fmt": { "len": 8, "max": 439.5, "mul": 1.7236894, "unit": "kilopascal" }, "name": "Rear right tire pressure", "suggestedMetric": "rearRightTirePressure"}
   ]},
 { "hdr": "743", "rax": "763", "fcm1": true, "dbg": true, "cmd": {"22": "0E28"}, "freq": 15,
   "signals": [
-    {"id": "NISSAN_TP_RL", "path": "Tires", "fmt": { "len": 8, "max": 439.5, "mul": 1.7236894, "unit": "kilopascal" }, "name": "Rear left tire pressure", "suggestedMetric": "rearLeftTirePressure"}
+    {"id": "NISSAN_TP_RL_V2", "path": "Tires", "fmt": { "len": 8, "max": 439.5, "mul": 1.7236894, "unit": "kilopascal" }, "name": "Rear left tire pressure", "suggestedMetric": "rearLeftTirePressure"}
   ]},
 { "hdr": "743", "rax": "763", "fcm1": true, "dbg": true, "cmd": {"22": "0E2E"}, "freq": 1,
   "signals": [
     {"id": "NISSAN_RANGE", "path": "Trips", "fmt": { "len": 16, "max": 6553.5, "unit": "kilometers" }, "name": "Range remaining", "suggestedMetric": "electricRange"}
+  ]},
+{ "hdr": "744", "dbg": true, "cmd": {"22": "4007"}, "freq": 1,
+  "signals": [
+    {"id": "NISSAN_AC_STATUS", "path": "Climate", "fmt": { "len": 8, "max": 255, "unit": "offon" }, "name": "A/C status"}
+  ]},
+{ "hdr": "744", "dbg": true, "cmd": {"22": "4008"}, "freq": 1,
+  "signals": [
+    {"id": "NISSAN_AAT", "path": "Climate", "fmt": { "len": 8, "max": 215, "min": -40, "add": -40, "unit": "celsius" }, "name": "Ambient air temperature"}
+  ]},
+{ "hdr": "744", "dbg": true, "cmd": {"22": "F467"}, "freq": 1,
+  "signals": [
+    {"id": "NISSAN_ECT", "path": "Climate", "fmt": { "len": 8, "max": 215, "min": -40, "add": -40, "unit": "celsius" }, "name": "Engine coolant temperature"}
+  ]},
+{ "hdr": "758", "rax": "778", "dbg": true, "cmd": {"22": "0201"}, "freq": 5,
+  "signals": [
+    {"id": "NISSAN_TP_FL", "path": "Tires", "fmt": { "len": 8, "max": 63.75, "div": 4, "unit": "psi" }, "name": "Front left tire pressure", "suggestedMetric": "frontLeftTirePressure"}
+  ]},
+{ "hdr": "758", "rax": "778", "dbg": true, "cmd": {"22": "0202"}, "freq": 5,
+  "signals": [
+    {"id": "NISSAN_TP_FR", "path": "Tires", "fmt": { "len": 8, "max": 63.75, "div": 4, "unit": "psi" }, "name": "Front right tire pressure", "suggestedMetric": "frontRightTirePressure"}
+  ]},
+{ "hdr": "758", "rax": "778", "dbg": true, "cmd": {"22": "0203"}, "freq": 5,
+  "signals": [
+    {"id": "NISSAN_TP_RR", "path": "Tires", "fmt": { "len": 8, "max": 63.75, "div": 4, "unit": "psi" }, "name": "Rear right tire pressure", "suggestedMetric": "rearRightTirePressure"}
+  ]},
+{ "hdr": "758", "rax": "778", "dbg": true, "cmd": {"22": "0204"}, "freq": 5,
+  "signals": [
+    {"id": "NISSAN_TP_RL", "path": "Tires", "fmt": { "len": 8, "max": 63.75, "div": 4, "unit": "psi" }, "name": "Rear left tire pressure", "suggestedMetric": "rearLeftTirePressure"}
+  ]},
+{ "hdr": "758", "rax": "778", "dbg": true, "cmd": {"22": "020D"}, "freq": 5,
+  "signals": [
+    {"id": "NISSAN_TPW_FL", "path": "Tires", "fmt": { "len": 8, "max": 63.75, "div": 4, "unit": "psi" }, "name": "Front left tire pressure, warning"}
+  ]},
+{ "hdr": "758", "rax": "778", "dbg": true, "cmd": {"22": "020E"}, "freq": 5,
+  "signals": [
+    {"id": "NISSAN_TPW_FR", "path": "Tires", "fmt": { "len": 8, "max": 63.75, "div": 4, "unit": "psi" }, "name": "Front right tire pressure, warning"}
+  ]},
+{ "hdr": "758", "rax": "778", "dbg": true, "cmd": {"22": "020F"}, "freq": 5,
+  "signals": [
+    {"id": "NISSAN_TPW_RR", "path": "Tires", "fmt": { "len": 8, "max": 63.75, "div": 4, "unit": "psi" }, "name": "Rear right tire pressure, warning"}
+  ]},
+{ "hdr": "758", "rax": "778", "dbg": true, "cmd": {"22": "0210"}, "freq": 5,
+  "signals": [
+    {"id": "NISSAN_TPW_RL", "path": "Tires", "fmt": { "len": 8, "max": 63.75, "div": 4, "unit": "psi" }, "name": "Rear left tire pressure, warning"}
   ]},
 { "hdr": "797", "rax": "79A", "fcm1": true, "dbg": true, "cmd": {"22": "1103"}, "freq": 1,
   "signals": [
@@ -73,7 +138,7 @@
   ]},
 { "hdr": "797", "rax": "79A", "fcm1": true, "dbg": true, "cmd": {"22": "115D"}, "freq": 1,
   "signals": [
-    {"id": "NISSAN_AAT", "path": "Climate", "fmt": { "len": 8, "max": 192.69, "min": -36.81, "mul": 0.9, "add": -40.9, "unit": "fahrenheit" }, "name": "Ambient air temperature"}
+    {"id": "NISSAN_AAT_V2", "path": "Climate", "fmt": { "len": 8, "max": 192.69, "min": -36.81, "mul": 0.9, "add": -40.9, "unit": "fahrenheit" }, "name": "Ambient air temperature"}
   ]},
 { "hdr": "797", "rax": "79A", "fcm1": true, "dbg": true, "cmd": {"22": "1183"}, "freq": 1,
   "signals": [
@@ -147,17 +212,9 @@
   "signals": [
     {"id": "NISSAN_HVBAT_SOH", "path": "Battery", "fmt": {"bix": 16, "len": 16, "max": 100, "div": 100, "unit": "percent" }, "name": "High voltage battery health", "suggestedMetric": "stateOfHealth", "description": "When the battery is new, its health should be ~100%."}
   ]},
-{ "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"22": "1186"}, "freq": 30,
-  "signals": [
-    {"id": "NISSAN_FLV", "path": "Fuel", "fmt": { "len": 8, "max": 255, "unit": "liters" }, "name": "Fuel remaining"}
-  ]},
 { "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"22": "122B"}, "freq": 30,
   "signals": [
     {"id": "NISSAN_CC_S", "path": "Cruise control", "fmt": { "len": 16, "max": 255, "unit": "scalar" }, "name": "Cruise control speed"}
-  ]},
-{ "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"22": "1266"}, "freq": 30,
-  "signals": [
-    {"id": "NISSAN_VVTO_T", "path": "Fluids", "fmt": { "len": 16, "max": 500, "min": -500, "mul": 3, "div": 128, "add": -273, "unit": "celsius" }, "name": "VVT oil temperature"}
   ]}
 ]
 }
