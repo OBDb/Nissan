@@ -28,6 +28,10 @@
   "signals": [
     {"id": "NISSAN_BRAKE_MC_P", "path": "Control", "fmt": { "len": 16, "max": 42666.015, "div": 1.536, "unit": "unknown" }, "name": "Brake master cylinder pressure"}
   ]},
+{ "hdr": "743", "rax": "763", "fcm1": true, "dbg": true, "cmd": {"21": "01"}, "freq": 30,
+  "signals": [
+    {"id": "NISSAN_ODO_METER", "path": "Trips", "fmt": {"bix": 64, "len": 16, "max": 65535, "unit": "kilometers" }, "name": "Odometer, meter group 1"}
+  ]},
 { "hdr": "743", "rax": "763", "fcm1": true, "dbg": true, "cmd": {"22": "0E01"}, "freq": 1,
   "signals": [
     {"id": "NISSAN_ODO", "path": "Trips", "fmt": { "len": 24, "max": 16777215, "unit": "miles" }, "name": "Odometer", "suggestedMetric": "odometer"}
@@ -48,9 +52,13 @@
   "signals": [
     {"id": "NISSAN_TP_RL_V2", "path": "Tires", "fmt": { "len": 8, "max": 439.5, "mul": 1.7236894, "unit": "kilopascal" }, "name": "Rear left tire pressure", "suggestedMetric": "rearLeftTirePressure"}
   ]},
+{ "hdr": "743", "rax": "763", "fcm1": true, "dbg": true, "cmd": {"22": "0E2D"}, "freq": 30,
+  "signals": [
+    {"id": "NISSAN_SOC_DASH", "path": "Battery", "fmt": {"bix": 112, "len": 8, "max": 100, "unit": "percent" }, "name": "State of charge, as the dash shows it", "suggestedMetric": "stateOfCharge"}
+  ]},
 { "hdr": "743", "rax": "763", "fcm1": true, "dbg": true, "cmd": {"22": "0E2E"}, "freq": 1,
   "signals": [
-    {"id": "NISSAN_RANGE", "path": "Trips", "fmt": { "len": 16, "max": 6553.5, "unit": "kilometers" }, "name": "Range remaining", "suggestedMetric": "electricRange"}
+    {"id": "NISSAN_RANGE", "path": "Trips", "fmt": { "len": 16, "max": 2047, "nullmin": 0, "nullmax": 2047, "unit": "kilometers" }, "name": "Range remaining", "suggestedMetric": "electricRange"}
   ]},
 { "hdr": "744", "dbg": true, "cmd": {"22": "4007"}, "freq": 1,
   "signals": [
@@ -113,7 +121,7 @@
   ]},
 { "hdr": "797", "rax": "79A", "fcm1": true, "dbg": true, "cmd": {"22": "1103"}, "freq": 1,
   "signals": [
-    {"id": "NISSAN_VPWR", "path": "Battery", "fmt": { "len": 8, "max": 30, "div": 12.5, "unit": "volts" }, "name": "12V battery voltage"}
+    {"id": "NISSAN_VPWR", "path": "Battery", "fmt": { "len": 8, "max": 30, "div": 12.5, "unit": "volts" }, "name": "12V battery voltage", "suggestedMetric": "starterBatteryVoltage"}
   ]},
 { "hdr": "797", "rax": "79A", "fcm1": true, "dbg": true, "cmd": {"22": "1106"}, "freq": 1,
   "signals": [
@@ -239,9 +247,12 @@
   ]},
 { "hdr": "79B", "rax": "7BB", "fcm1": true, "dbg": true, "cmd": {"21": "01"}, "freq": 1,
   "signals": [
-    {"id": "NISSAN_HVBAT_VOLT", "path": "Battery", "fmt": {"bix": 144, "len": 16, "max": 655,  "div": 100,               "unit": "volts"       }, "name": "High voltage battery voltage"},
-    {"id": "NISSAN_HVBAT_SOC",  "path": "Battery", "fmt": {"bix": 248, "len": 24, "max": 100,  "div": 8190,  "add": -17, "unit": "percent"     }, "name": "High voltage battery charge",   "suggestedMetric": "stateOfCharge"},
-    {"id": "NISSAN_HVBAT_CAP",  "path": "Battery", "fmt": {"bix": 280, "len": 24, "max": 1000, "div": 10000,             "unit": "ampereHours" }, "name": "High voltage battery capacity"}
+    {"id": "NISSAN_HVBAT_VOLT_PRE18", "path": "Battery", "fmt": {"bix": 144, "len": 16, "max": 655,  "div": 100,               "unit": "volts"       }, "name": "High voltage battery voltage",  "suggestedMetric": "tractionBatteryVoltage"},
+    {"id": "NISSAN_HVBAT_VOLT",       "path": "Battery", "fmt": {"bix": 144, "len": 16, "max": 655,  "div": 100,               "unit": "volts"       }, "name": "High voltage battery voltage",  "suggestedMetric": "tractionBatteryVoltage"},
+    {"id": "NISSAN_HVBAT_SOC_PRE18",  "path": "Battery", "fmt": {"bix": 232, "len": 24, "max": 100,  "div": 10000,             "unit": "percent"     }, "name": "High voltage battery charge",   "suggestedMetric": "stateOfCharge"},
+    {"id": "NISSAN_HVBAT_SOC",        "path": "Battery", "fmt": {"bix": 248, "len": 24, "max": 100,  "div": 8190,  "add": -17, "unit": "percent"     }, "name": "High voltage battery charge",   "suggestedMetric": "stateOfCharge"},
+    {"id": "NISSAN_HVBAT_CAP_PRE18",  "path": "Battery", "fmt": {"bix": 264, "len": 24, "max": 1000, "div": 10000,             "unit": "ampereHours" }, "name": "High voltage battery capacity"},
+    {"id": "NISSAN_HVBAT_CAP",        "path": "Battery", "fmt": {"bix": 280, "len": 24, "max": 1000, "div": 10000,             "unit": "ampereHours" }, "name": "High voltage battery capacity"}
   ]},
 { "hdr": "79B", "rax": "7BB", "dbg": true, "cmd": {"21": "02"}, "freq": 30,
   "signals": [
@@ -341,7 +352,7 @@
     {"id": "NISSAN_HVBAT_CELL_94_V", "path": "Battery.Cells", "fmt": {"bix": 1488, "len": 16, "max": 65.535, "div": 1000, "unit": "volts" }, "name": "HV battery cell 94 voltage"},
     {"id": "NISSAN_HVBAT_CELL_95_V", "path": "Battery.Cells", "fmt": {"bix": 1504, "len": 16, "max": 65.535, "div": 1000, "unit": "volts" }, "name": "HV battery cell 95 voltage"},
     {"id": "NISSAN_HVBAT_CELL_96_V", "path": "Battery.Cells", "fmt": {"bix": 1520, "len": 16, "max": 65.535, "div": 1000, "unit": "volts" }, "name": "HV battery cell 96 voltage"},
-    {"id": "NISSAN_HVBAT_PACK_V",    "path": "Battery",       "fmt": {"bix": 1536, "len": 16, "max": 655.35, "div": 100,  "unit": "volts" }, "name": "HV battery pack voltage"},
+    {"id": "NISSAN_HVBAT_PACK_V",    "path": "Battery",       "fmt": {"bix": 1536, "len": 16, "max": 655.35, "div": 100,  "unit": "volts" }, "name": "HV battery pack voltage",    "suggestedMetric": "tractionBatteryVoltage"},
     {"id": "NISSAN_HVBAT_BUS_V",     "path": "Battery",       "fmt": {"bix": 1552, "len": 16, "max": 655.35, "div": 100,  "unit": "volts" }, "name": "HV bus voltage"}
   ]},
 { "hdr": "79B", "rax": "7BB", "dbg": true, "cmd": {"21": "04"}, "freq": 30,
