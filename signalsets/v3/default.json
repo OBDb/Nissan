@@ -20,6 +20,14 @@
   "signals": [
     {"id": "NISSAN_STEER_ANGLE", "path": "Control", "fmt": { "len": 16, "max": 3276.7, "min": -3276.8, "div": 10, "sign": true, "unit": "degrees" }, "name": "Steering wheel angle", "description": "Negative values are clockwise, positive values are counter-clockwise."}
   ]},
+{ "hdr": "740", "rax": "760", "dbg": true, "cmd": {"22": "1115"}, "freq": 0.25,
+  "signals": [
+    {"id": "NISSAN_APP", "path": "Control", "fmt": { "len": 8, "max": 127.5, "div": 2, "unit": "percent" }, "name": "Accelerator pedal position"}
+  ]},
+{ "hdr": "740", "rax": "760", "dbg": true, "cmd": {"22": "1209"}, "freq": 0.25,
+  "signals": [
+    {"id": "NISSAN_BRAKE_MC_P", "path": "Control", "fmt": { "len": 16, "max": 42666.015, "div": 1.536, "unit": "unknown" }, "name": "Brake master cylinder pressure"}
+  ]},
 { "hdr": "743", "rax": "763", "fcm1": true, "dbg": true, "cmd": {"22": "0E01"}, "freq": 1,
   "signals": [
     {"id": "NISSAN_ODO", "path": "Trips", "fmt": { "len": 24, "max": 16777215, "unit": "miles" }, "name": "Odometer", "suggestedMetric": "odometer"}
@@ -56,6 +64,17 @@
   "signals": [
     {"id": "NISSAN_ECT", "path": "Climate", "fmt": { "len": 8, "max": 215, "min": -40, "add": -40, "unit": "celsius" }, "name": "Engine coolant temperature"}
   ]},
+{ "hdr": "744", "rax": "764", "dbg": true, "cmd": {"21": "10"}, "freq": 5,
+  "signals": [
+    {"id": "NISSAN_HVAC_AAT",      "path": "Climate", "fmt": {            "len": 8,  "max": 215,   "min": -40, "add": -40, "unit": "celsius" }, "name": "Ambient air temperature, climate module"},
+    {"id": "NISSAN_HVAC_CABIN_T",  "path": "Climate", "fmt": {"bix": 8,   "len": 8,  "max": 215,   "min": -40, "add": -40, "unit": "celsius" }, "name": "Cabin temperature"},
+    {"id": "NISSAN_HVAC_EVAP_T",   "path": "Climate", "fmt": {"bix": 16,  "len": 8,  "max": 215,   "min": -40, "add": -40, "unit": "celsius" }, "name": "Evaporator temperature"},
+    {"id": "NISSAN_HVAC_SUNLOAD",  "path": "Climate", "fmt": {"bix": 24,  "len": 8,  "max": 255,                           "unit": "scalar"  }, "name": "Sun load"},
+    {"id": "NISSAN_HVAC_AC_ON",    "path": "Climate", "fmt": {"bix": 80,  "len": 1,  "max": 1,                             "unit": "offon"   }, "name": "Air conditioning on"},
+    {"id": "NISSAN_HVAC_FAN_ON",   "path": "Climate", "fmt": {"bix": 88,  "len": 1,  "max": 1,                             "unit": "offon"   }, "name": "Blower on"},
+    {"id": "NISSAN_HVAC_BLOWER_V", "path": "Climate", "fmt": {"bix": 89,  "len": 7,  "max": 127,                           "unit": "volts"   }, "name": "Blower voltage"},
+    {"id": "NISSAN_AC_COMP_RPM",   "path": "Climate", "fmt": {"bix": 168, "len": 16, "max": 65535,                         "unit": "rpm"     }, "name": "Air conditioning compressor speed"}
+  ]},
 { "hdr": "758", "rax": "778", "dbg": true, "cmd": {"22": "0201"}, "freq": 5,
   "signals": [
     {"id": "NISSAN_TP_FL", "path": "Tires", "fmt": { "len": 8, "max": 63.75, "div": 4, "unit": "psi" }, "name": "Front left tire pressure", "suggestedMetric": "frontLeftTirePressure"}
@@ -88,6 +107,10 @@
   "signals": [
     {"id": "NISSAN_TPW_RL", "path": "Tires", "fmt": { "len": 8, "max": 63.75, "div": 4, "unit": "psi" }, "name": "Rear left tire pressure, warning"}
   ]},
+{ "hdr": "797", "rax": "79A", "dbg": true, "cmd": {"22": "1102"}, "freq": 0.25,
+  "signals": [
+    {"id": "NISSAN_VSS_VCM", "path": "Movement", "fmt": { "len": 8, "max": 255, "unit": "kilometersPerHour" }, "name": "Vehicle speed, vehicle control module"}
+  ]},
 { "hdr": "797", "rax": "79A", "fcm1": true, "dbg": true, "cmd": {"22": "1103"}, "freq": 1,
   "signals": [
     {"id": "NISSAN_VPWR", "path": "Battery", "fmt": { "len": 8, "max": 30, "div": 12.5, "unit": "volts" }, "name": "12V battery voltage"}
@@ -102,6 +125,10 @@
           "162": { "description": "Heater is on", "value": "HEATER_ON" }
         }}
     }
+  ]},
+{ "hdr": "797", "rax": "79A", "dbg": true, "cmd": {"22": "1128"}, "freq": 0.25,
+  "signals": [
+    {"id": "NISSAN_MOTOR_TQ_NOMINAL", "path": "Engine", "fmt": { "len": 16, "max": 511.984, "min": -512, "div": 64, "sign": true, "unit": "newtonMeters" }, "name": "Motor torque, nominal"}
   ]},
 { "hdr": "797", "rax": "79A", "fcm1": true, "dbg": true, "cmd": {"22": "1146"}, "freq": 1,
   "signals": [
@@ -169,6 +196,14 @@
   "signals": [
     {"id": "NISSAN_CHRG_PWR", "path": "Battery", "fmt": { "len": 16, "max": 6553500, "mul": 100, "unit": "watts" }, "name": "Charging power", "description": "Power entering the high voltage battery while charging."}
   ]},
+{ "hdr": "797", "rax": "79A", "dbg": true, "cmd": {"22": "1248"}, "freq": 1,
+  "signals": [
+    {"id": "NISSAN_HVBAT_I", "path": "Battery", "fmt": { "len": 16, "max": 16383.5, "min": -16384, "div": 2, "sign": true, "unit": "amps" }, "name": "HV battery current", "suggestedMetric": "tractionBatteryCurrent"}
+  ]},
+{ "hdr": "797", "rax": "79A", "dbg": true, "cmd": {"22": "1254"}, "freq": 0.25,
+  "signals": [
+    {"id": "NISSAN_MOTOR_TQ", "path": "Engine", "fmt": { "len": 16, "max": 511.984, "min": -512, "div": 64, "sign": true, "unit": "newtonMeters" }, "name": "Motor torque, actual"}
+  ]},
 { "hdr": "797", "rax": "79A", "fcm1": true, "dbg": true, "cmd": {"22": "1255"}, "freq": 1,
   "signals": [
     {"id": "NISSAN_RPM", "path": "Engine", "fmt": { "len": 16, "max": 32767, "min": -32767, "sign": true, "unit": "scalar" }, "name": "Engine RPM"}
@@ -207,6 +242,114 @@
     {"id": "NISSAN_HVBAT_VOLT", "path": "Battery", "fmt": {"bix": 144, "len": 16, "max": 655,  "div": 100,               "unit": "volts"       }, "name": "High voltage battery voltage"},
     {"id": "NISSAN_HVBAT_SOC",  "path": "Battery", "fmt": {"bix": 248, "len": 24, "max": 100,  "div": 8190,  "add": -17, "unit": "percent"     }, "name": "High voltage battery charge",   "suggestedMetric": "stateOfCharge"},
     {"id": "NISSAN_HVBAT_CAP",  "path": "Battery", "fmt": {"bix": 280, "len": 24, "max": 1000, "div": 10000,             "unit": "ampereHours" }, "name": "High voltage battery capacity"}
+  ]},
+{ "hdr": "79B", "rax": "7BB", "dbg": true, "cmd": {"21": "02"}, "freq": 30,
+  "signals": [
+    {"id": "NISSAN_HVBAT_CELL_1_V",  "path": "Battery.Cells", "fmt": {             "len": 16, "max": 65.535, "div": 1000, "unit": "volts" }, "name": "HV battery cell 1 voltage"},
+    {"id": "NISSAN_HVBAT_CELL_2_V",  "path": "Battery.Cells", "fmt": {"bix": 16,   "len": 16, "max": 65.535, "div": 1000, "unit": "volts" }, "name": "HV battery cell 2 voltage"},
+    {"id": "NISSAN_HVBAT_CELL_3_V",  "path": "Battery.Cells", "fmt": {"bix": 32,   "len": 16, "max": 65.535, "div": 1000, "unit": "volts" }, "name": "HV battery cell 3 voltage"},
+    {"id": "NISSAN_HVBAT_CELL_4_V",  "path": "Battery.Cells", "fmt": {"bix": 48,   "len": 16, "max": 65.535, "div": 1000, "unit": "volts" }, "name": "HV battery cell 4 voltage"},
+    {"id": "NISSAN_HVBAT_CELL_5_V",  "path": "Battery.Cells", "fmt": {"bix": 64,   "len": 16, "max": 65.535, "div": 1000, "unit": "volts" }, "name": "HV battery cell 5 voltage"},
+    {"id": "NISSAN_HVBAT_CELL_6_V",  "path": "Battery.Cells", "fmt": {"bix": 80,   "len": 16, "max": 65.535, "div": 1000, "unit": "volts" }, "name": "HV battery cell 6 voltage"},
+    {"id": "NISSAN_HVBAT_CELL_7_V",  "path": "Battery.Cells", "fmt": {"bix": 96,   "len": 16, "max": 65.535, "div": 1000, "unit": "volts" }, "name": "HV battery cell 7 voltage"},
+    {"id": "NISSAN_HVBAT_CELL_8_V",  "path": "Battery.Cells", "fmt": {"bix": 112,  "len": 16, "max": 65.535, "div": 1000, "unit": "volts" }, "name": "HV battery cell 8 voltage"},
+    {"id": "NISSAN_HVBAT_CELL_9_V",  "path": "Battery.Cells", "fmt": {"bix": 128,  "len": 16, "max": 65.535, "div": 1000, "unit": "volts" }, "name": "HV battery cell 9 voltage"},
+    {"id": "NISSAN_HVBAT_CELL_10_V", "path": "Battery.Cells", "fmt": {"bix": 144,  "len": 16, "max": 65.535, "div": 1000, "unit": "volts" }, "name": "HV battery cell 10 voltage"},
+    {"id": "NISSAN_HVBAT_CELL_11_V", "path": "Battery.Cells", "fmt": {"bix": 160,  "len": 16, "max": 65.535, "div": 1000, "unit": "volts" }, "name": "HV battery cell 11 voltage"},
+    {"id": "NISSAN_HVBAT_CELL_12_V", "path": "Battery.Cells", "fmt": {"bix": 176,  "len": 16, "max": 65.535, "div": 1000, "unit": "volts" }, "name": "HV battery cell 12 voltage"},
+    {"id": "NISSAN_HVBAT_CELL_13_V", "path": "Battery.Cells", "fmt": {"bix": 192,  "len": 16, "max": 65.535, "div": 1000, "unit": "volts" }, "name": "HV battery cell 13 voltage"},
+    {"id": "NISSAN_HVBAT_CELL_14_V", "path": "Battery.Cells", "fmt": {"bix": 208,  "len": 16, "max": 65.535, "div": 1000, "unit": "volts" }, "name": "HV battery cell 14 voltage"},
+    {"id": "NISSAN_HVBAT_CELL_15_V", "path": "Battery.Cells", "fmt": {"bix": 224,  "len": 16, "max": 65.535, "div": 1000, "unit": "volts" }, "name": "HV battery cell 15 voltage"},
+    {"id": "NISSAN_HVBAT_CELL_16_V", "path": "Battery.Cells", "fmt": {"bix": 240,  "len": 16, "max": 65.535, "div": 1000, "unit": "volts" }, "name": "HV battery cell 16 voltage"},
+    {"id": "NISSAN_HVBAT_CELL_17_V", "path": "Battery.Cells", "fmt": {"bix": 256,  "len": 16, "max": 65.535, "div": 1000, "unit": "volts" }, "name": "HV battery cell 17 voltage"},
+    {"id": "NISSAN_HVBAT_CELL_18_V", "path": "Battery.Cells", "fmt": {"bix": 272,  "len": 16, "max": 65.535, "div": 1000, "unit": "volts" }, "name": "HV battery cell 18 voltage"},
+    {"id": "NISSAN_HVBAT_CELL_19_V", "path": "Battery.Cells", "fmt": {"bix": 288,  "len": 16, "max": 65.535, "div": 1000, "unit": "volts" }, "name": "HV battery cell 19 voltage"},
+    {"id": "NISSAN_HVBAT_CELL_20_V", "path": "Battery.Cells", "fmt": {"bix": 304,  "len": 16, "max": 65.535, "div": 1000, "unit": "volts" }, "name": "HV battery cell 20 voltage"},
+    {"id": "NISSAN_HVBAT_CELL_21_V", "path": "Battery.Cells", "fmt": {"bix": 320,  "len": 16, "max": 65.535, "div": 1000, "unit": "volts" }, "name": "HV battery cell 21 voltage"},
+    {"id": "NISSAN_HVBAT_CELL_22_V", "path": "Battery.Cells", "fmt": {"bix": 336,  "len": 16, "max": 65.535, "div": 1000, "unit": "volts" }, "name": "HV battery cell 22 voltage"},
+    {"id": "NISSAN_HVBAT_CELL_23_V", "path": "Battery.Cells", "fmt": {"bix": 352,  "len": 16, "max": 65.535, "div": 1000, "unit": "volts" }, "name": "HV battery cell 23 voltage"},
+    {"id": "NISSAN_HVBAT_CELL_24_V", "path": "Battery.Cells", "fmt": {"bix": 368,  "len": 16, "max": 65.535, "div": 1000, "unit": "volts" }, "name": "HV battery cell 24 voltage"},
+    {"id": "NISSAN_HVBAT_CELL_25_V", "path": "Battery.Cells", "fmt": {"bix": 384,  "len": 16, "max": 65.535, "div": 1000, "unit": "volts" }, "name": "HV battery cell 25 voltage"},
+    {"id": "NISSAN_HVBAT_CELL_26_V", "path": "Battery.Cells", "fmt": {"bix": 400,  "len": 16, "max": 65.535, "div": 1000, "unit": "volts" }, "name": "HV battery cell 26 voltage"},
+    {"id": "NISSAN_HVBAT_CELL_27_V", "path": "Battery.Cells", "fmt": {"bix": 416,  "len": 16, "max": 65.535, "div": 1000, "unit": "volts" }, "name": "HV battery cell 27 voltage"},
+    {"id": "NISSAN_HVBAT_CELL_28_V", "path": "Battery.Cells", "fmt": {"bix": 432,  "len": 16, "max": 65.535, "div": 1000, "unit": "volts" }, "name": "HV battery cell 28 voltage"},
+    {"id": "NISSAN_HVBAT_CELL_29_V", "path": "Battery.Cells", "fmt": {"bix": 448,  "len": 16, "max": 65.535, "div": 1000, "unit": "volts" }, "name": "HV battery cell 29 voltage"},
+    {"id": "NISSAN_HVBAT_CELL_30_V", "path": "Battery.Cells", "fmt": {"bix": 464,  "len": 16, "max": 65.535, "div": 1000, "unit": "volts" }, "name": "HV battery cell 30 voltage"},
+    {"id": "NISSAN_HVBAT_CELL_31_V", "path": "Battery.Cells", "fmt": {"bix": 480,  "len": 16, "max": 65.535, "div": 1000, "unit": "volts" }, "name": "HV battery cell 31 voltage"},
+    {"id": "NISSAN_HVBAT_CELL_32_V", "path": "Battery.Cells", "fmt": {"bix": 496,  "len": 16, "max": 65.535, "div": 1000, "unit": "volts" }, "name": "HV battery cell 32 voltage"},
+    {"id": "NISSAN_HVBAT_CELL_33_V", "path": "Battery.Cells", "fmt": {"bix": 512,  "len": 16, "max": 65.535, "div": 1000, "unit": "volts" }, "name": "HV battery cell 33 voltage"},
+    {"id": "NISSAN_HVBAT_CELL_34_V", "path": "Battery.Cells", "fmt": {"bix": 528,  "len": 16, "max": 65.535, "div": 1000, "unit": "volts" }, "name": "HV battery cell 34 voltage"},
+    {"id": "NISSAN_HVBAT_CELL_35_V", "path": "Battery.Cells", "fmt": {"bix": 544,  "len": 16, "max": 65.535, "div": 1000, "unit": "volts" }, "name": "HV battery cell 35 voltage"},
+    {"id": "NISSAN_HVBAT_CELL_36_V", "path": "Battery.Cells", "fmt": {"bix": 560,  "len": 16, "max": 65.535, "div": 1000, "unit": "volts" }, "name": "HV battery cell 36 voltage"},
+    {"id": "NISSAN_HVBAT_CELL_37_V", "path": "Battery.Cells", "fmt": {"bix": 576,  "len": 16, "max": 65.535, "div": 1000, "unit": "volts" }, "name": "HV battery cell 37 voltage"},
+    {"id": "NISSAN_HVBAT_CELL_38_V", "path": "Battery.Cells", "fmt": {"bix": 592,  "len": 16, "max": 65.535, "div": 1000, "unit": "volts" }, "name": "HV battery cell 38 voltage"},
+    {"id": "NISSAN_HVBAT_CELL_39_V", "path": "Battery.Cells", "fmt": {"bix": 608,  "len": 16, "max": 65.535, "div": 1000, "unit": "volts" }, "name": "HV battery cell 39 voltage"},
+    {"id": "NISSAN_HVBAT_CELL_40_V", "path": "Battery.Cells", "fmt": {"bix": 624,  "len": 16, "max": 65.535, "div": 1000, "unit": "volts" }, "name": "HV battery cell 40 voltage"},
+    {"id": "NISSAN_HVBAT_CELL_41_V", "path": "Battery.Cells", "fmt": {"bix": 640,  "len": 16, "max": 65.535, "div": 1000, "unit": "volts" }, "name": "HV battery cell 41 voltage"},
+    {"id": "NISSAN_HVBAT_CELL_42_V", "path": "Battery.Cells", "fmt": {"bix": 656,  "len": 16, "max": 65.535, "div": 1000, "unit": "volts" }, "name": "HV battery cell 42 voltage"},
+    {"id": "NISSAN_HVBAT_CELL_43_V", "path": "Battery.Cells", "fmt": {"bix": 672,  "len": 16, "max": 65.535, "div": 1000, "unit": "volts" }, "name": "HV battery cell 43 voltage"},
+    {"id": "NISSAN_HVBAT_CELL_44_V", "path": "Battery.Cells", "fmt": {"bix": 688,  "len": 16, "max": 65.535, "div": 1000, "unit": "volts" }, "name": "HV battery cell 44 voltage"},
+    {"id": "NISSAN_HVBAT_CELL_45_V", "path": "Battery.Cells", "fmt": {"bix": 704,  "len": 16, "max": 65.535, "div": 1000, "unit": "volts" }, "name": "HV battery cell 45 voltage"},
+    {"id": "NISSAN_HVBAT_CELL_46_V", "path": "Battery.Cells", "fmt": {"bix": 720,  "len": 16, "max": 65.535, "div": 1000, "unit": "volts" }, "name": "HV battery cell 46 voltage"},
+    {"id": "NISSAN_HVBAT_CELL_47_V", "path": "Battery.Cells", "fmt": {"bix": 736,  "len": 16, "max": 65.535, "div": 1000, "unit": "volts" }, "name": "HV battery cell 47 voltage"},
+    {"id": "NISSAN_HVBAT_CELL_48_V", "path": "Battery.Cells", "fmt": {"bix": 752,  "len": 16, "max": 65.535, "div": 1000, "unit": "volts" }, "name": "HV battery cell 48 voltage"},
+    {"id": "NISSAN_HVBAT_CELL_49_V", "path": "Battery.Cells", "fmt": {"bix": 768,  "len": 16, "max": 65.535, "div": 1000, "unit": "volts" }, "name": "HV battery cell 49 voltage"},
+    {"id": "NISSAN_HVBAT_CELL_50_V", "path": "Battery.Cells", "fmt": {"bix": 784,  "len": 16, "max": 65.535, "div": 1000, "unit": "volts" }, "name": "HV battery cell 50 voltage"},
+    {"id": "NISSAN_HVBAT_CELL_51_V", "path": "Battery.Cells", "fmt": {"bix": 800,  "len": 16, "max": 65.535, "div": 1000, "unit": "volts" }, "name": "HV battery cell 51 voltage"},
+    {"id": "NISSAN_HVBAT_CELL_52_V", "path": "Battery.Cells", "fmt": {"bix": 816,  "len": 16, "max": 65.535, "div": 1000, "unit": "volts" }, "name": "HV battery cell 52 voltage"},
+    {"id": "NISSAN_HVBAT_CELL_53_V", "path": "Battery.Cells", "fmt": {"bix": 832,  "len": 16, "max": 65.535, "div": 1000, "unit": "volts" }, "name": "HV battery cell 53 voltage"},
+    {"id": "NISSAN_HVBAT_CELL_54_V", "path": "Battery.Cells", "fmt": {"bix": 848,  "len": 16, "max": 65.535, "div": 1000, "unit": "volts" }, "name": "HV battery cell 54 voltage"},
+    {"id": "NISSAN_HVBAT_CELL_55_V", "path": "Battery.Cells", "fmt": {"bix": 864,  "len": 16, "max": 65.535, "div": 1000, "unit": "volts" }, "name": "HV battery cell 55 voltage"},
+    {"id": "NISSAN_HVBAT_CELL_56_V", "path": "Battery.Cells", "fmt": {"bix": 880,  "len": 16, "max": 65.535, "div": 1000, "unit": "volts" }, "name": "HV battery cell 56 voltage"},
+    {"id": "NISSAN_HVBAT_CELL_57_V", "path": "Battery.Cells", "fmt": {"bix": 896,  "len": 16, "max": 65.535, "div": 1000, "unit": "volts" }, "name": "HV battery cell 57 voltage"},
+    {"id": "NISSAN_HVBAT_CELL_58_V", "path": "Battery.Cells", "fmt": {"bix": 912,  "len": 16, "max": 65.535, "div": 1000, "unit": "volts" }, "name": "HV battery cell 58 voltage"},
+    {"id": "NISSAN_HVBAT_CELL_59_V", "path": "Battery.Cells", "fmt": {"bix": 928,  "len": 16, "max": 65.535, "div": 1000, "unit": "volts" }, "name": "HV battery cell 59 voltage"},
+    {"id": "NISSAN_HVBAT_CELL_60_V", "path": "Battery.Cells", "fmt": {"bix": 944,  "len": 16, "max": 65.535, "div": 1000, "unit": "volts" }, "name": "HV battery cell 60 voltage"},
+    {"id": "NISSAN_HVBAT_CELL_61_V", "path": "Battery.Cells", "fmt": {"bix": 960,  "len": 16, "max": 65.535, "div": 1000, "unit": "volts" }, "name": "HV battery cell 61 voltage"},
+    {"id": "NISSAN_HVBAT_CELL_62_V", "path": "Battery.Cells", "fmt": {"bix": 976,  "len": 16, "max": 65.535, "div": 1000, "unit": "volts" }, "name": "HV battery cell 62 voltage"},
+    {"id": "NISSAN_HVBAT_CELL_63_V", "path": "Battery.Cells", "fmt": {"bix": 992,  "len": 16, "max": 65.535, "div": 1000, "unit": "volts" }, "name": "HV battery cell 63 voltage"},
+    {"id": "NISSAN_HVBAT_CELL_64_V", "path": "Battery.Cells", "fmt": {"bix": 1008, "len": 16, "max": 65.535, "div": 1000, "unit": "volts" }, "name": "HV battery cell 64 voltage"},
+    {"id": "NISSAN_HVBAT_CELL_65_V", "path": "Battery.Cells", "fmt": {"bix": 1024, "len": 16, "max": 65.535, "div": 1000, "unit": "volts" }, "name": "HV battery cell 65 voltage"},
+    {"id": "NISSAN_HVBAT_CELL_66_V", "path": "Battery.Cells", "fmt": {"bix": 1040, "len": 16, "max": 65.535, "div": 1000, "unit": "volts" }, "name": "HV battery cell 66 voltage"},
+    {"id": "NISSAN_HVBAT_CELL_67_V", "path": "Battery.Cells", "fmt": {"bix": 1056, "len": 16, "max": 65.535, "div": 1000, "unit": "volts" }, "name": "HV battery cell 67 voltage"},
+    {"id": "NISSAN_HVBAT_CELL_68_V", "path": "Battery.Cells", "fmt": {"bix": 1072, "len": 16, "max": 65.535, "div": 1000, "unit": "volts" }, "name": "HV battery cell 68 voltage"},
+    {"id": "NISSAN_HVBAT_CELL_69_V", "path": "Battery.Cells", "fmt": {"bix": 1088, "len": 16, "max": 65.535, "div": 1000, "unit": "volts" }, "name": "HV battery cell 69 voltage"},
+    {"id": "NISSAN_HVBAT_CELL_70_V", "path": "Battery.Cells", "fmt": {"bix": 1104, "len": 16, "max": 65.535, "div": 1000, "unit": "volts" }, "name": "HV battery cell 70 voltage"},
+    {"id": "NISSAN_HVBAT_CELL_71_V", "path": "Battery.Cells", "fmt": {"bix": 1120, "len": 16, "max": 65.535, "div": 1000, "unit": "volts" }, "name": "HV battery cell 71 voltage"},
+    {"id": "NISSAN_HVBAT_CELL_72_V", "path": "Battery.Cells", "fmt": {"bix": 1136, "len": 16, "max": 65.535, "div": 1000, "unit": "volts" }, "name": "HV battery cell 72 voltage"},
+    {"id": "NISSAN_HVBAT_CELL_73_V", "path": "Battery.Cells", "fmt": {"bix": 1152, "len": 16, "max": 65.535, "div": 1000, "unit": "volts" }, "name": "HV battery cell 73 voltage"},
+    {"id": "NISSAN_HVBAT_CELL_74_V", "path": "Battery.Cells", "fmt": {"bix": 1168, "len": 16, "max": 65.535, "div": 1000, "unit": "volts" }, "name": "HV battery cell 74 voltage"},
+    {"id": "NISSAN_HVBAT_CELL_75_V", "path": "Battery.Cells", "fmt": {"bix": 1184, "len": 16, "max": 65.535, "div": 1000, "unit": "volts" }, "name": "HV battery cell 75 voltage"},
+    {"id": "NISSAN_HVBAT_CELL_76_V", "path": "Battery.Cells", "fmt": {"bix": 1200, "len": 16, "max": 65.535, "div": 1000, "unit": "volts" }, "name": "HV battery cell 76 voltage"},
+    {"id": "NISSAN_HVBAT_CELL_77_V", "path": "Battery.Cells", "fmt": {"bix": 1216, "len": 16, "max": 65.535, "div": 1000, "unit": "volts" }, "name": "HV battery cell 77 voltage"},
+    {"id": "NISSAN_HVBAT_CELL_78_V", "path": "Battery.Cells", "fmt": {"bix": 1232, "len": 16, "max": 65.535, "div": 1000, "unit": "volts" }, "name": "HV battery cell 78 voltage"},
+    {"id": "NISSAN_HVBAT_CELL_79_V", "path": "Battery.Cells", "fmt": {"bix": 1248, "len": 16, "max": 65.535, "div": 1000, "unit": "volts" }, "name": "HV battery cell 79 voltage"},
+    {"id": "NISSAN_HVBAT_CELL_80_V", "path": "Battery.Cells", "fmt": {"bix": 1264, "len": 16, "max": 65.535, "div": 1000, "unit": "volts" }, "name": "HV battery cell 80 voltage"},
+    {"id": "NISSAN_HVBAT_CELL_81_V", "path": "Battery.Cells", "fmt": {"bix": 1280, "len": 16, "max": 65.535, "div": 1000, "unit": "volts" }, "name": "HV battery cell 81 voltage"},
+    {"id": "NISSAN_HVBAT_CELL_82_V", "path": "Battery.Cells", "fmt": {"bix": 1296, "len": 16, "max": 65.535, "div": 1000, "unit": "volts" }, "name": "HV battery cell 82 voltage"},
+    {"id": "NISSAN_HVBAT_CELL_83_V", "path": "Battery.Cells", "fmt": {"bix": 1312, "len": 16, "max": 65.535, "div": 1000, "unit": "volts" }, "name": "HV battery cell 83 voltage"},
+    {"id": "NISSAN_HVBAT_CELL_84_V", "path": "Battery.Cells", "fmt": {"bix": 1328, "len": 16, "max": 65.535, "div": 1000, "unit": "volts" }, "name": "HV battery cell 84 voltage"},
+    {"id": "NISSAN_HVBAT_CELL_85_V", "path": "Battery.Cells", "fmt": {"bix": 1344, "len": 16, "max": 65.535, "div": 1000, "unit": "volts" }, "name": "HV battery cell 85 voltage"},
+    {"id": "NISSAN_HVBAT_CELL_86_V", "path": "Battery.Cells", "fmt": {"bix": 1360, "len": 16, "max": 65.535, "div": 1000, "unit": "volts" }, "name": "HV battery cell 86 voltage"},
+    {"id": "NISSAN_HVBAT_CELL_87_V", "path": "Battery.Cells", "fmt": {"bix": 1376, "len": 16, "max": 65.535, "div": 1000, "unit": "volts" }, "name": "HV battery cell 87 voltage"},
+    {"id": "NISSAN_HVBAT_CELL_88_V", "path": "Battery.Cells", "fmt": {"bix": 1392, "len": 16, "max": 65.535, "div": 1000, "unit": "volts" }, "name": "HV battery cell 88 voltage"},
+    {"id": "NISSAN_HVBAT_CELL_89_V", "path": "Battery.Cells", "fmt": {"bix": 1408, "len": 16, "max": 65.535, "div": 1000, "unit": "volts" }, "name": "HV battery cell 89 voltage"},
+    {"id": "NISSAN_HVBAT_CELL_90_V", "path": "Battery.Cells", "fmt": {"bix": 1424, "len": 16, "max": 65.535, "div": 1000, "unit": "volts" }, "name": "HV battery cell 90 voltage"},
+    {"id": "NISSAN_HVBAT_CELL_91_V", "path": "Battery.Cells", "fmt": {"bix": 1440, "len": 16, "max": 65.535, "div": 1000, "unit": "volts" }, "name": "HV battery cell 91 voltage"},
+    {"id": "NISSAN_HVBAT_CELL_92_V", "path": "Battery.Cells", "fmt": {"bix": 1456, "len": 16, "max": 65.535, "div": 1000, "unit": "volts" }, "name": "HV battery cell 92 voltage"},
+    {"id": "NISSAN_HVBAT_CELL_93_V", "path": "Battery.Cells", "fmt": {"bix": 1472, "len": 16, "max": 65.535, "div": 1000, "unit": "volts" }, "name": "HV battery cell 93 voltage"},
+    {"id": "NISSAN_HVBAT_CELL_94_V", "path": "Battery.Cells", "fmt": {"bix": 1488, "len": 16, "max": 65.535, "div": 1000, "unit": "volts" }, "name": "HV battery cell 94 voltage"},
+    {"id": "NISSAN_HVBAT_CELL_95_V", "path": "Battery.Cells", "fmt": {"bix": 1504, "len": 16, "max": 65.535, "div": 1000, "unit": "volts" }, "name": "HV battery cell 95 voltage"},
+    {"id": "NISSAN_HVBAT_CELL_96_V", "path": "Battery.Cells", "fmt": {"bix": 1520, "len": 16, "max": 65.535, "div": 1000, "unit": "volts" }, "name": "HV battery cell 96 voltage"},
+    {"id": "NISSAN_HVBAT_PACK_V",    "path": "Battery",       "fmt": {"bix": 1536, "len": 16, "max": 655.35, "div": 100,  "unit": "volts" }, "name": "HV battery pack voltage"},
+    {"id": "NISSAN_HVBAT_BUS_V",     "path": "Battery",       "fmt": {"bix": 1552, "len": 16, "max": 655.35, "div": 100,  "unit": "volts" }, "name": "HV bus voltage"}
+  ]},
+{ "hdr": "79B", "rax": "7BB", "dbg": true, "cmd": {"21": "04"}, "freq": 30,
+  "signals": [
+    {"id": "NISSAN_HVBAT_PACK_1_T", "path": "Battery", "fmt": {"bix": 16, "len": 8, "max": 127, "min": -128, "sign": true, "unit": "celsius" }, "name": "HV battery pack 1 temperature"},
+    {"id": "NISSAN_HVBAT_PACK_2_T", "path": "Battery", "fmt": {"bix": 40, "len": 8, "max": 127, "min": -128, "sign": true, "unit": "celsius" }, "name": "HV battery pack 2 temperature"},
+    {"id": "NISSAN_HVBAT_PACK_4_T", "path": "Battery", "fmt": {"bix": 88, "len": 8, "max": 127, "min": -128, "sign": true, "unit": "celsius" }, "name": "HV battery pack 4 temperature"},
+    {"id": "NISSAN_HVBAT_PACK_5_T", "path": "Battery", "fmt": {"bix": 96, "len": 8, "max": 127, "min": -128, "sign": true, "unit": "celsius" }, "name": "HV battery pack 5 temperature"}
   ]},
 { "hdr": "79B", "rax": "7BB", "fcm1": true, "dbg": true, "cmd": {"21": "61"}, "freq": 3600,
   "signals": [
