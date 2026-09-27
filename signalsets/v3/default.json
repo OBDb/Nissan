@@ -355,12 +355,21 @@
     {"id": "NISSAN_HVBAT_PACK_V",    "path": "Battery",       "fmt": {"bix": 1536, "len": 16, "max": 655.35, "div": 100,  "unit": "volts" }, "name": "HV battery pack voltage",    "suggestedMetric": "tractionBatteryVoltage"},
     {"id": "NISSAN_HVBAT_BUS_V",     "path": "Battery",       "fmt": {"bix": 1552, "len": 16, "max": 655.35, "div": 100,  "unit": "volts" }, "name": "HV bus voltage"}
   ]},
+{ "hdr": "79B", "rax": "7BB", "fcm1": true, "dbg": true, "cmd": {"21": "03"}, "freq": 1,
+  "signals": [
+    {"id": "NISSAN_MAX_CELL_V", "path": "Battery", "fmt": {"bix": 80, "len": 16, "max": 4.5, "div": 1000, "unit": "volts" }, "name": "Maximum cell voltage"},
+    {"id": "NISSAN_MIN_CELL_V", "path": "Battery", "fmt": {"bix": 96, "len": 16, "max": 4.5, "div": 1000, "unit": "volts" }, "name": "Minimum cell voltage"}
+  ]},
 { "hdr": "79B", "rax": "7BB", "dbg": true, "cmd": {"21": "04"}, "freq": 30,
   "signals": [
     {"id": "NISSAN_HVBAT_PACK_1_T", "path": "Battery", "fmt": {"bix": 16, "len": 8, "max": 127, "min": -128, "sign": true, "unit": "celsius" }, "name": "HV battery pack 1 temperature"},
     {"id": "NISSAN_HVBAT_PACK_2_T", "path": "Battery", "fmt": {"bix": 40, "len": 8, "max": 127, "min": -128, "sign": true, "unit": "celsius" }, "name": "HV battery pack 2 temperature"},
     {"id": "NISSAN_HVBAT_PACK_4_T", "path": "Battery", "fmt": {"bix": 88, "len": 8, "max": 127, "min": -128, "sign": true, "unit": "celsius" }, "name": "HV battery pack 4 temperature"},
     {"id": "NISSAN_HVBAT_PACK_5_T", "path": "Battery", "fmt": {"bix": 96, "len": 8, "max": 127, "min": -128, "sign": true, "unit": "celsius" }, "name": "HV battery pack 5 temperature"}
+  ]},
+{ "hdr": "79B", "rax": "7BB", "fcm1": true, "dbg": true, "cmd": {"21": "0C"}, "freq": 3600,
+  "signals": [
+    {"id": "NISSAN_BAT_CONTROLLER_DIST", "path": "Trips", "fmt": {"bix": 8, "len": 32, "max": 4500, "unit": "scalar" }, "name": "Battery controller distance counter"}
   ]},
 { "hdr": "79B", "rax": "7BB", "fcm1": true, "dbg": true, "cmd": {"21": "61"}, "freq": 3600,
   "signals": [
