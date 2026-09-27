@@ -83,6 +83,13 @@
     {"id": "NISSAN_HVAC_BLOWER_V", "path": "Climate", "fmt": {"bix": 89,  "len": 7,  "max": 127,                           "unit": "volts"   }, "name": "Blower voltage"},
     {"id": "NISSAN_AC_COMP_RPM",   "path": "Climate", "fmt": {"bix": 168, "len": 16, "max": 65535,                         "unit": "rpm"     }, "name": "Air conditioning compressor speed"}
   ]},
+{ "hdr": "758", "rax": "778", "fcm1": true, "din": "C0", "dout": "81", "dbg": true, "cmd": {"21": "10"}, "freq": 15,
+  "signals": [
+    {"id": "NISSAN_WHL_1_P", "path": "Tires", "fmt": {"bix": 16, "len": 8, "max": 63.75, "div": 4, "unit": "psi" }, "name": "Wheel 1 pressure"},
+    {"id": "NISSAN_WHL_2_P", "path": "Tires", "fmt": {"bix": 24, "len": 8, "max": 63.75, "div": 4, "unit": "psi" }, "name": "Wheel 2 pressure"},
+    {"id": "NISSAN_WHL_3_P", "path": "Tires", "fmt": {"bix": 32, "len": 8, "max": 63.75, "div": 4, "unit": "psi" }, "name": "Wheel 3 pressure"},
+    {"id": "NISSAN_WHL_4_P", "path": "Tires", "fmt": {"bix": 40, "len": 8, "max": 63.75, "div": 4, "unit": "psi" }, "name": "Wheel 4 pressure"}
+  ]},
 { "hdr": "758", "rax": "778", "dbg": true, "cmd": {"22": "0201"}, "freq": 5,
   "signals": [
     {"id": "NISSAN_TP_FL", "path": "Tires", "fmt": { "len": 8, "max": 63.75, "div": 4, "unit": "psi" }, "name": "Front left tire pressure", "suggestedMetric": "frontLeftTirePressure"}
@@ -378,6 +385,14 @@
 { "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"22": "122B"}, "freq": 30,
   "signals": [
     {"id": "NISSAN_CC_S", "path": "Cruise control", "fmt": { "len": 16, "max": 255, "unit": "scalar" }, "name": "Cruise control speed"}
+  ]},
+{ "hdr": "7E1", "rax": "7E9", "din": "C0", "dout": "81", "dbg": true, "cmd": {"21": "01"}, "freq": 5,
+  "signals": [
+    {"id": "NISSAN_OUTPUT_SPD",   "path": "Movement",     "fmt": {"bix": 40,  "len": 16, "max": 65535,                                             "unit": "rpm"        }, "name": "Output speed"},
+    {"id": "NISSAN_TURBINE_SPD",  "path": "Movement",     "fmt": {"bix": 56,  "len": 16, "max": 65535,                                             "unit": "rpm"        }, "name": "Turbine speed"},
+    {"id": "NISSAN_TQ_CONV_SLIP", "path": "Transmission", "fmt": {"bix": 120, "len": 16, "max": 65535,                                             "unit": "rpm"        }, "name": "Torque converter slip"},
+    {"id": "NISSAN_ATF_T_VAR_1",  "path": "Transmission", "fmt": {"bix": 152, "len": 8,  "max": 392,   "min": -67, "mul": 9, "div": 5, "add": -67, "unit": "fahrenheit" }, "name": "Transmission fluid temperature, variant 1"},
+    {"id": "NISSAN_ATF_T_VAR_2",  "path": "Transmission", "fmt": {"bix": 160, "len": 8,  "max": 392,   "min": -67, "mul": 9, "div": 5, "add": -67, "unit": "fahrenheit" }, "name": "Transmission fluid temperature, variant 2"}
   ]}
 ]
 }
