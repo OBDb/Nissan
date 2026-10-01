@@ -1,4 +1,5 @@
 { "ecu": [
+    { "hdr": "7E0", "type": "engine" },
     { "hdr": "7E1", "type": "transmission" }
   ],
   "commands": [
@@ -27,14 +28,18 @@
   "signals": [
     {"id": "NISSAN_APP", "path": "Control", "fmt": { "len": 8, "max": 127.5, "div": 2, "unit": "percent" }, "name": "Accelerator pedal position"}
   ]},
+{ "hdr": "740", "rax": "760", "fcm1": true, "dbg": true, "cmd": {"22": "1208"}, "freq": 0.25,
+  "signals": [
+    {"id": "NISSAN_ABS_STEER_ANG", "path": "Control", "fmt": { "len": 16, "max": 3276, "min": -3276, "div": 10, "sign": true, "unit": "degrees" }, "name": "Anti-lock brake steering angle"}
+  ]},
 { "hdr": "740", "rax": "760", "dbg": true, "cmd": {"22": "1209"}, "freq": 0.25,
   "signals": [
-    {"id": "NISSAN_BRAKE_MC_P", "path": "Control", "fmt": { "len": 16, "max": 42666.015, "div": 1.536, "unit": "unknown" }, "name": "Brake master cylinder pressure"}
+    {"id": "NISSAN_BRAKE_MC_P", "path": "Control", "fmt": { "len": 16, "max": 32767, "min": -32768, "sign": true, "unit": "scalar" }, "name": "Brake master cylinder pressure count"}
   ]},
 { "hdr": "743", "rax": "763", "fcm1": true, "dbg": true, "cmd": {"21": "01"}, "freq": 30,
   "signals": [
-    {"id": "NISSAN_ODO_METER", "path": "Trips", "fmt": {"bix": 64, "len": 16, "max": 65535, "unit": "kilometers" }, "name": "Odometer, meter group 1", "suggestedMetric": "odometer"},
-    {"id": "NISSAN_MTR_ODO",   "path": "Trips", "fmt": {"bix": 64, "len": 16, "max": 65535, "unit": "kilometers" }, "name": "Odometer, meter group 1"}
+    {"id": "NISSAN_MTR_ODO",   "path": "Trips", "fmt": {"bix": 56, "len": 24, "max": 16777215, "unit": "kilometers" }, "name": "Odometer, meter group 1", "suggestedMetric": "odometer"},
+    {"id": "NISSAN_ODO_METER", "path": "Trips", "fmt": {"bix": 64, "len": 16, "max": 65535,    "unit": "kilometers" }, "name": "Odometer, meter group 1", "suggestedMetric": "odometer"}
   ]},
 { "hdr": "743", "rax": "763", "fcm1": true, "dbg": true, "cmd": {"22": "0E01"}, "freq": 30,
   "signals": [
@@ -79,6 +84,23 @@
     {"id": "NISSAN_HVAC_BLOWER_V", "path": "Climate", "fmt": {"bix": 89,  "len": 7,  "max": 127,                           "unit": "volts"   }, "name": "Blower voltage"},
     {"id": "NISSAN_AC_COMP_RPM",   "path": "Climate", "fmt": {"bix": 168, "len": 16, "max": 65535,                         "unit": "rpm"     }, "name": "Air conditioning compressor speed"}
   ]},
+{ "hdr": "744", "rax": "764", "fcm1": true, "din": "C0", "dbg": true, "cmd": {"21": "53"}, "freq": 1,
+  "signals": [
+    {"id": "NISSAN_IH",                      "path": "Engine", "fmt": {            "len": 8, "max": 255, "unit": "percent" }, "name": "Ih_feetventactrposition"},
+    {"id": "NISSAN_IH_LEFTMIXACTRPOSITION",  "path": "Engine", "fmt": {"bix": 8,   "len": 8, "max": 255, "unit": "percent" }, "name": "Ih_leftmixactrposition"},
+    {"id": "NISSAN_IH_RECYACTRPOSITION",     "path": "Engine", "fmt": {"bix": 16,  "len": 8, "max": 255, "unit": "percent" }, "name": "Ih_recyactrposition"},
+    {"id": "NISSAN_IH_RIGHTMIXACTRPOSITION", "path": "Engine", "fmt": {"bix": 24,  "len": 8, "max": 255, "unit": "percent" }, "name": "Ih_rightmixactrposition"},
+    {"id": "NISSAN_IH_DEFACTRPOSITION",      "path": "Engine", "fmt": {"bix": 32,  "len": 8, "max": 255, "unit": "percent" }, "name": "Ih_defactrposition"},
+    {"id": "NISSAN_IH_RESERVEACTRPOSITION",  "path": "Engine", "fmt": {"bix": 40,  "len": 8, "max": 255, "unit": "percent" }, "name": "Ih_reserveactrposition"},
+    {"id": "NISSAN_OH_FEETVENTACTRREQ",      "path": "Engine", "fmt": {"bix": 48,  "len": 8, "max": 255, "unit": "percent" }, "name": "Oh_feetventactrreq"},
+    {"id": "NISSAN_OH_LEFTMIXACTRREQ",       "path": "Engine", "fmt": {"bix": 56,  "len": 8, "max": 255, "unit": "percent" }, "name": "Oh_leftmixactrreq"},
+    {"id": "NISSAN_OH_RECYACTRREQ",          "path": "Engine", "fmt": {"bix": 64,  "len": 8, "max": 255, "unit": "percent" }, "name": "Oh_recyactrreq"},
+    {"id": "NISSAN_OH_RIGHTMIXACTRREQ",      "path": "Engine", "fmt": {"bix": 72,  "len": 8, "max": 255, "unit": "percent" }, "name": "Oh_rightmixactrreq"},
+    {"id": "NISSAN_OH_DEFACTRREQ",           "path": "Engine", "fmt": {"bix": 80,  "len": 8, "max": 255, "unit": "percent" }, "name": "Oh_defactrreq"},
+    {"id": "NISSAN_OH_RESERVEACTRREQ",       "path": "Engine", "fmt": {"bix": 88,  "len": 8, "max": 255, "unit": "percent" }, "name": "Oh_reserveactrreq"},
+    {"id": "NISSAN_IH_REARMIXACTRPOSITION",  "path": "Engine", "fmt": {"bix": 96,  "len": 8, "max": 255, "unit": "percent" }, "name": "Ih_rearmixactrposition"},
+    {"id": "NISSAN_OH_REARMIXACTRREQ",       "path": "Engine", "fmt": {"bix": 104, "len": 8, "max": 255, "unit": "percent" }, "name": "Oh_rearmixactrreq"}
+  ]},
 { "hdr": "744", "rax": "764", "dbg": true, "cmd": {"22": "4007"}, "freq": 5,
   "signals": [
     {"id": "NISSAN_AC_STATUS", "path": "Climate", "fmt": { "len": 8, "max": 255, "unit": "offon" }, "name": "Air conditioning status"}
@@ -89,9 +111,53 @@
   ]},
 { "hdr": "744", "rax": "764", "dbg": true, "cmd": {"22": "F467"}, "freq": 5,
   "signals": [
-    {"id": "NISSAN_ECT", "path": "Climate", "fmt": { "len": 8, "max": 215, "min": -40, "add": -40, "unit": "celsius" }, "name": "Coolant temperature"}
+    {"id": "NISSAN_ECT", "path": "Climate", "fmt": { "len": 8, "max": 215, "min": -40, "add": -40, "nullmax": 215, "unit": "celsius" }, "name": "Coolant temperature"}
   ]},
-{ "hdr": "758", "rax": "778", "fcm1": true, "din": "C0", "dout": "81", "dbg": true, "cmd": {"21": "10"}, "freq": 15,
+{ "hdr": "748", "rax": "768", "fcm1": true, "din": "C0", "dout": "81", "dbg": true, "cmd": {"22": "1103"}, "freq": 1,
+  "signals": [
+    {"id": "NISSAN_AWD_ELECTRONIC", "path": "Engine", "fmt": {"bix": 7, "len": 1, "max": 0.02, "div": 50, "unit": "offon" }, "name": "All-wheel drive electronic traction support solenoid"}
+  ]},
+{ "hdr": "748", "rax": "768", "fcm1": true, "din": "C0", "dout": "81", "dbg": true, "cmd": {"22": "1104"}, "freq": 0.25,
+  "signals": [
+    {"id": "NISSAN_AWD_REQ_ENG_TQ", "path": "Engine", "fmt": {"bix": 7, "len": 1, "max": 0, "min": -2.5, "mul": 5, "div": 2, "sign": true, "unit": "offon" }, "name": "All-wheel drive request engine torque"}
+  ]},
+{ "hdr": "748", "rax": "768", "fcm1": true, "din": "C0", "dout": "81", "dbg": true, "cmd": {"22": "1105"}, "freq": 0.25,
+  "signals": [
+    {"id": "NISSAN_AWD_ESTIMATED_ENG_TQ", "path": "Engine", "fmt": {"bix": 7, "len": 1, "max": 0, "min": -2.5, "mul": 5, "div": 2, "sign": true, "unit": "offon" }, "name": "All-wheel drive estimated engine torque"}
+  ]},
+{ "hdr": "748", "rax": "768", "fcm1": true, "din": "C0", "dout": "81", "dbg": true, "cmd": {"22": "1107"}, "freq": 0.25,
+  "signals": [
+    {"id": "NISSAN_AWD_TGT_TRACTION", "path": "Engine", "fmt": {"bix": 7, "len": 1, "max": 2, "mul": 2, "unit": "offon" }, "name": "AWD, target traction control torque"}
+  ]},
+{ "hdr": "748", "rax": "768", "fcm1": true, "din": "C0", "dout": "81", "dbg": true, "cmd": {"22": "1114"}, "freq": 5,
+  "signals": [
+    {"id": "NISSAN_AWD_COUPLING_T", "path": "Engine", "fmt": {"bix": 7, "len": 1, "max": 1, "unit": "offon" }, "name": "All-wheel drive coupling temperature"}
+  ]},
+{ "hdr": "748", "rax": "768", "fcm1": true, "din": "C0", "dout": "81", "dbg": true, "cmd": {"22": "1201"}, "freq": 0.25,
+  "signals": [
+    {"id": "NISSAN_AWD_FR_WHL_SPD", "path": "Tires", "fmt": {"bix": 7, "len": 1, "max": 0.0039, "mul": 256, "div": 65535, "unit": "offon" }, "name": "All-wheel drive front right wheel speed"}
+  ]},
+{ "hdr": "748", "rax": "768", "fcm1": true, "din": "C0", "dout": "81", "dbg": true, "cmd": {"22": "1202"}, "freq": 0.25,
+  "signals": [
+    {"id": "NISSAN_AWD_FL_WHL_SPD", "path": "Tires", "fmt": {"bix": 7, "len": 1, "max": 0.0039, "mul": 256, "div": 65535, "unit": "offon" }, "name": "All-wheel drive front left wheel speed"}
+  ]},
+{ "hdr": "748", "rax": "768", "fcm1": true, "din": "C0", "dout": "81", "dbg": true, "cmd": {"22": "1203"}, "freq": 0.25,
+  "signals": [
+    {"id": "NISSAN_AWD_RR_WHL_SPD", "path": "Tires", "fmt": {"bix": 7, "len": 1, "max": 0.0039, "mul": 256, "div": 65535, "unit": "offon" }, "name": "All-wheel drive rear right wheel speed"}
+  ]},
+{ "hdr": "748", "rax": "768", "fcm1": true, "din": "C0", "dout": "81", "dbg": true, "cmd": {"22": "1204"}, "freq": 0.25,
+  "signals": [
+    {"id": "NISSAN_AWD_RL_WHL_SPD", "path": "Tires", "fmt": {"bix": 7, "len": 1, "max": 0.0039, "mul": 256, "div": 65535, "unit": "offon" }, "name": "All-wheel drive rear left wheel speed"}
+  ]},
+{ "hdr": "748", "rax": "768", "fcm1": true, "din": "C0", "dout": "81", "dbg": true, "cmd": {"22": "1314"}, "freq": 5,
+  "signals": [
+    {"id": "NISSAN_AWD_CLU_HIGH_T_SIG_1", "path": "Transmission", "fmt": { "len": 1, "max": 1, "unit": "offon" }, "name": "All-wheel drive clutch high temperature signal 1"}
+  ]},
+{ "hdr": "748", "rax": "768", "fcm1": true, "din": "C0", "dout": "81", "dbg": true, "cmd": {"22": "1315"}, "freq": 5,
+  "signals": [
+    {"id": "NISSAN_AWD_CLU_HIGH_T_SIG_2", "path": "Transmission", "fmt": {"bix": 7, "len": 1, "max": 1, "unit": "offon" }, "name": "All-wheel drive clutch high temperature signal 2"}
+  ]},
+{ "hdr": "758", "rax": "778", "fcm1": true, "dbg": true, "cmd": {"21": "10"}, "freq": 15,
   "signals": [
     {"id": "NISSAN_WHL_1_P", "path": "Tires", "fmt": {"bix": 16, "len": 8, "max": 63.75, "div": 4, "unit": "psi" }, "name": "Wheel 1 pressure"},
     {"id": "NISSAN_WHL_2_P", "path": "Tires", "fmt": {"bix": 24, "len": 8, "max": 63.75, "div": 4, "unit": "psi" }, "name": "Wheel 2 pressure"},
@@ -100,35 +166,57 @@
   ]},
 { "hdr": "758", "rax": "778", "dbg": true, "cmd": {"22": "0201"}, "freq": 5,
   "signals": [
-    {"id": "NISSAN_TP_FL_V2", "path": "Tires", "fmt": { "len": 8, "max": 63.75, "div": 4, "unit": "psi" }, "name": "Front left tire pressure", "suggestedMetric": "frontLeftTirePressure"}
+    {"id": "NISSAN_TP_FL_V2",  "path": "Tires", "fmt": { "len": 8, "max": 63.75, "div": 4, "nullmin": 0, "unit": "psi" }, "name": "Front left tire pressure", "suggestedMetric": "frontLeftTirePressure"},
+    {"id": "NISSAN_FL_TIRE_P", "path": "Tires", "fmt": { "len": 8, "max": 63.75, "div": 4,               "unit": "psi" }, "name": "Front left tire pressure", "suggestedMetric": "frontLeftTirePressure"}
   ]},
 { "hdr": "758", "rax": "778", "dbg": true, "cmd": {"22": "0202"}, "freq": 5,
   "signals": [
-    {"id": "NISSAN_TP_FR_V2", "path": "Tires", "fmt": { "len": 8, "max": 63.75, "div": 4, "unit": "psi" }, "name": "Front right tire pressure", "suggestedMetric": "frontRightTirePressure"}
+    {"id": "NISSAN_TP_FR_V2",  "path": "Tires", "fmt": { "len": 8, "max": 63.75, "div": 4, "nullmin": 0, "unit": "psi" }, "name": "Front right tire pressure", "suggestedMetric": "frontRightTirePressure"},
+    {"id": "NISSAN_FR_TIRE_P", "path": "Tires", "fmt": { "len": 8, "max": 63.75, "div": 4,               "unit": "psi" }, "name": "Front right tire pressure", "suggestedMetric": "frontRightTirePressure"}
   ]},
 { "hdr": "758", "rax": "778", "dbg": true, "cmd": {"22": "0203"}, "freq": 5,
   "signals": [
-    {"id": "NISSAN_TP_RR_V2", "path": "Tires", "fmt": { "len": 8, "max": 63.75, "div": 4, "unit": "psi" }, "name": "Rear right tire pressure", "suggestedMetric": "rearRightTirePressure"}
+    {"id": "NISSAN_TP_RR_V2",  "path": "Tires", "fmt": { "len": 8, "max": 63.75, "div": 4, "nullmin": 0, "unit": "psi" }, "name": "Rear right tire pressure", "suggestedMetric": "rearRightTirePressure"},
+    {"id": "NISSAN_RR_TIRE_P", "path": "Tires", "fmt": { "len": 8, "max": 63.75, "div": 4,               "unit": "psi" }, "name": "Rear right tire pressure", "suggestedMetric": "rearRightTirePressure"}
   ]},
 { "hdr": "758", "rax": "778", "dbg": true, "cmd": {"22": "0204"}, "freq": 5,
   "signals": [
-    {"id": "NISSAN_TP_RL_V2", "path": "Tires", "fmt": { "len": 8, "max": 63.75, "div": 4, "unit": "psi" }, "name": "Rear left tire pressure", "suggestedMetric": "rearLeftTirePressure"}
+    {"id": "NISSAN_TP_RL_V2",  "path": "Tires", "fmt": { "len": 8, "max": 63.75, "div": 4, "nullmin": 0, "unit": "psi" }, "name": "Rear left tire pressure", "suggestedMetric": "rearLeftTirePressure"},
+    {"id": "NISSAN_RL_TIRE_P", "path": "Tires", "fmt": { "len": 8, "max": 63.75, "div": 4,               "unit": "psi" }, "name": "Rear left tire pressure", "suggestedMetric": "rearLeftTirePressure"}
   ]},
 { "hdr": "758", "rax": "778", "dbg": true, "cmd": {"22": "020D"}, "freq": 5,
   "signals": [
-    {"id": "NISSAN_TPW_FL", "path": "Tires", "fmt": { "len": 8, "max": 63.75, "div": 4, "unit": "psi" }, "name": "Front left tire pressure, warning"}
+    {"id": "NISSAN_TPW_FL", "path": "Tires", "fmt": { "len": 8, "max": 63.75, "div": 4, "nullmin": 0, "unit": "psi" }, "name": "Front left tire pressure, warning"}
   ]},
 { "hdr": "758", "rax": "778", "dbg": true, "cmd": {"22": "020E"}, "freq": 5,
   "signals": [
-    {"id": "NISSAN_TPW_FR", "path": "Tires", "fmt": { "len": 8, "max": 63.75, "div": 4, "unit": "psi" }, "name": "Front right tire pressure, warning"}
+    {"id": "NISSAN_TPW_FR", "path": "Tires", "fmt": { "len": 8, "max": 63.75, "div": 4, "nullmin": 0, "unit": "psi" }, "name": "Front right tire pressure, warning"}
   ]},
 { "hdr": "758", "rax": "778", "dbg": true, "cmd": {"22": "020F"}, "freq": 5,
   "signals": [
-    {"id": "NISSAN_TPW_RR", "path": "Tires", "fmt": { "len": 8, "max": 63.75, "div": 4, "unit": "psi" }, "name": "Rear right tire pressure, warning"}
+    {"id": "NISSAN_TPW_RR", "path": "Tires", "fmt": { "len": 8, "max": 63.75, "div": 4, "nullmin": 0, "unit": "psi" }, "name": "Rear right tire pressure, warning"}
   ]},
 { "hdr": "758", "rax": "778", "dbg": true, "cmd": {"22": "0210"}, "freq": 5,
   "signals": [
-    {"id": "NISSAN_TPW_RL", "path": "Tires", "fmt": { "len": 8, "max": 63.75, "div": 4, "unit": "psi" }, "name": "Rear left tire pressure, warning"}
+    {"id": "NISSAN_TPW_RL", "path": "Tires", "fmt": { "len": 8, "max": 63.75, "div": 4, "nullmin": 0, "unit": "psi" }, "name": "Rear left tire pressure, warning"}
+  ]},
+{ "hdr": "75C", "rax": "77C", "fcm1": true, "dbg": true, "cmd": {"21": "01"}, "freq": 0.25,
+  "signals": [
+    {"id": "NISSAN_STEER_ANG",              "path": "Engine",   "fmt": {"bix": 16,  "len": 16, "max": 6553,                             "div": 10,                                "unit": "degrees"           }, "name": "Steer angle"},
+    {"id": "NISSAN_VSS_V3",                 "path": "Movement", "fmt": {"bix": 32,  "len": 16, "max": 6553,                             "div": 10,                                "unit": "kilometersPerHour" }, "name": "Vehicle speed"},
+    {"id": "NISSAN_SELECTOR_POS",           "path": "Engine",   "fmt": {"bix": 48,  "len": 8,  "max": 255,                                                                        "unit": "scalar"            }, "name": "Selector position"},
+    {"id": "NISSAN_HEAD_LAMP",              "path": "Engine",   "fmt": {"bix": 56,  "len": 1,  "max": 1,                                                                          "unit": "offon"             }, "name": "Head lamp"},
+    {"id": "NISSAN_REVERSE",                "path": "Engine",   "fmt": {"bix": 57,  "len": 1,  "max": 1,                                                                          "unit": "offon"             }, "name": "Reverse"},
+    {"id": "NISSAN_HEIGHT_SENS_SIG_REAR",   "path": "Engine",   "fmt": {"bix": 64,  "len": 16, "max": 328699,                "mul": 5,               "add": 1024,                 "unit": "volts"             }, "name": "Height sensor signal rear"},
+    {"id": "NISSAN_HEIGHT_SENS_SIG",        "path": "Engine",   "fmt": {"bix": 80,  "len": 16, "max": 328699,                "mul": 5,               "add": 1024,                 "unit": "volts"             }, "name": "Height sensor signal front"},
+    {"id": "NISSAN_HEADLAMP_LEVEL",         "path": "Engine",   "fmt": {"bix": 96,  "len": 16, "max": 25689,                 "mul": 49, "div": 125,                               "unit": "percent"           }, "name": "Headlamp level"},
+    {"id": "NISSAN_SWIVEL_SENS_LEFT",       "path": "Engine",   "fmt": {"bix": 112, "len": 16, "max": -25447, "min": -32000,            "div": 10,   "add": -32000,               "unit": "degrees"           }, "name": "Swivel sensor left"},
+    {"id": "NISSAN_SWIVEL_SENS_RIGHT",      "path": "Engine",   "fmt": {"bix": 128, "len": 16, "max": -25447, "min": -32000,            "div": 10,   "add": -32000,               "unit": "degrees"           }, "name": "Swivel sensor right"},
+    {"id": "NISSAN_SWIVEL_ANG_LEFT",        "path": "Engine",   "fmt": {"bix": 144, "len": 16, "max": -25447, "min": -32000,            "div": 10,   "add": -32000,               "unit": "degrees"           }, "name": "Swivel angle left"},
+    {"id": "NISSAN_SWIVEL_ANG_RIGHT",       "path": "Engine",   "fmt": {"bix": 160, "len": 16, "max": -25447, "min": -32000,            "div": 10,   "add": -32000,               "unit": "degrees"           }, "name": "Swivel angle right"},
+    {"id": "NISSAN_HEIGHT_SENS_INIT",       "path": "Engine",   "fmt": {"bix": 176, "len": 16, "max": 319.99,                "mul": 5,  "div": 1024,                              "unit": "volts"             }, "name": "Height sensor initial value rear"},
+    {"id": "NISSAN_HEIGHT_SENS_INIT_FRONT", "path": "Engine",   "fmt": {"bix": 192, "len": 16, "max": 319.99,                "mul": 5,  "div": 1024,                              "unit": "volts"             }, "name": "Height sensor initial value front"},
+    {"id": "NISSAN_FRONT_PINION_ANG",       "path": "Engine",   "fmt": {"bix": 208, "len": 16, "max": 3276,   "min": -3276,             "div": 10,                  "sign": true, "unit": "degrees"           }, "name": "Front pinion angle"}
   ]},
 { "hdr": "797", "rax": "79A", "dbg": true, "cmd": {"22": "1102"}, "freq": 0.25,
   "signals": [
@@ -390,9 +478,31 @@
   "signals": [
     {"id": "NISSAN_HVBAT_SOH", "path": "Battery", "fmt": {"bix": 16, "len": 16, "max": 100, "div": 100, "unit": "percent" }, "name": "High voltage battery health", "suggestedMetric": "stateOfHealth", "description": "When the battery is new, its health should be ~100%."}
   ]},
+{ "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"21": "69"}, "freq": 1,
+  "signals": [
+    {"id": "NISSAN_ALTERNATOR_SETPOINT_V", "path": "Battery", "fmt": { "len": 16, "max": 1310, "div": 50, "unit": "volts" }, "name": "ALTERNATOR set point VOLTAGE"}
+  ]},
+{ "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"21": "AD"}, "freq": 3600,
+  "signals": [
+    {"id": "NISSAN_COLD_STARTING",      "path": "Engine",  "fmt": {            "len": 8,  "max": 255,                                                             "unit": "scalar"         }, "name": "Cold starting programming"},
+    {"id": "NISSAN_FUEL_RAIL_T_SENS_V", "path": "Battery", "fmt": {"bix": 8,   "len": 8,  "max": 4.98,               "mul": 5,         "div": 256,                "unit": "volts"          }, "name": "Fuel rail temperature sensor voltage"},
+    {"id": "NISSAN_FUEL_RAIL_T",        "path": "Fuel",    "fmt": {"bix": 16,  "len": 8,  "max": 143,   "min": -48,  "mul": 3,         "div": 4,     "add": -48,  "unit": "celsius"        }, "name": "Fuel rail temperature"},
+    {"id": "NISSAN_VAPOR_LOCK_T",       "path": "Engine",  "fmt": {"bix": 24,  "len": 8,  "max": 143,   "min": -48,  "mul": 3,         "div": 4,     "add": -48,  "unit": "celsius"        }, "name": "Vapor lock temperature"},
+    {"id": "NISSAN_FUEL_TANK_T_SENS_V", "path": "Battery", "fmt": {"bix": 32,  "len": 8,  "max": 4.98,               "mul": 5,         "div": 256,                "unit": "volts"          }, "name": "Fuel tank temperature sensor voltage"},
+    {"id": "NISSAN_FUEL_TANK_T",        "path": "Fuel",    "fmt": {"bix": 40,  "len": 8,  "max": 143,   "min": -48,  "mul": 3,         "div": 4,     "add": -48,  "unit": "celsius"        }, "name": "Fuel tank temperature"},
+    {"id": "NISSAN_TANK_P",             "path": "Engine",  "fmt": {"bix": 120, "len": 16, "max": 32767,                                "div": 2,                  "unit": "unknown"        }, "name": "Tank pressure"},
+    {"id": "NISSAN_LPLI_PMP_PWM_SIG",   "path": "Engine",  "fmt": {"bix": 160, "len": 16, "max": 99.99,              "mul": 0.0015259,                            "unit": "percent"        }, "name": "Low-pressure fuel pump drive duty"},
+    {"id": "NISSAN_FUEL_PMP_FLOW",      "path": "Fuel",    "fmt": {"bix": 176, "len": 8,  "max": 31.87,                                "div": 8,                  "unit": "gramsPerSecond" }, "name": "Fuel pump flow"},
+    {"id": "NISSAN_EFP_LEARNING",       "path": "Engine",  "fmt": {"bix": 184, "len": 16, "max": 0.5,   "min": -0.5,                   "div": 65535, "add": -0.5, "unit": "percent"        }, "name": "Electric fuel pump learning value"},
+    {"id": "NISSAN_BUTANE_PERCENTAGE",  "path": "Engine",  "fmt": {"bix": 200, "len": 8,  "max": 99.61,              "mul": 7813,      "div": 20000,              "unit": "percent"        }, "name": "Butane percentage"}
+  ]},
 { "hdr": "7E0", "rax": "7E8", "din": "C0", "dout": "81", "dbg": true, "cmd": {"22": "1124"}, "freq": 1,
   "signals": [
     {"id": "NISSAN_AF_ADJ_B2", "path": "Fuel", "fmt": { "len": 8, "max": 155, "min": -100, "add": -100, "unit": "percent" }, "name": "Air/fuel ratio adjustment, bank 2"}
+  ]},
+{ "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"22": "112A"}, "freq": 1,
+  "signals": [
+    {"id": "NISSAN_MANIFOLD_P_SENS_V", "path": "Battery", "fmt": { "len": 8, "max": 5.1, "div": 50, "unit": "volts" }, "name": "Manifold pressure sensor voltage"}
   ]},
 { "hdr": "7E0", "rax": "7E8", "din": "C0", "dout": "81", "dbg": true, "cmd": {"22": "1137"}, "freq": 1,
   "signals": [
@@ -402,13 +512,25 @@
   "signals": [
     {"id": "NISSAN_CAM_DUTY_B2", "path": "Engine", "fmt": { "len": 8, "max": 99.6, "mul": 25, "div": 64, "unit": "percent" }, "name": "Intake valve timing solenoid duty, bank 2"}
   ]},
-{ "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"22": "1186"}, "freq": 30,
+{ "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"22": "113C"}, "freq": 1,
   "signals": [
-    {"id": "NISSAN_FUEL_REMAINING", "path": "Fuel", "fmt": { "len": 8, "max": 255, "unit": "liters" }, "name": "Remaining fuel"}
+    {"id": "NISSAN_IGN_ADVANCE", "path": "Engine", "fmt": { "len": 8, "max": 112, "min": -143, "mul": -1, "add": 112, "unit": "scalar" }, "name": "Ignition advance"}
+  ]},
+{ "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"22": "1186"}, "freq": 1,
+  "signals": [
+    {"id": "NISSAN_REMAINING_FUEL", "path": "Fuel", "fmt": { "len": 8, "max": 255, "unit": "liters" }, "name": "Remaining fuel"}
   ]},
 { "hdr": "7E0", "rax": "7E8", "din": "C0", "dout": "81", "dbg": true, "cmd": {"22": "1205"}, "freq": 1,
   "signals": [
     {"id": "NISSAN_MAF_V_B2", "path": "Engine", "fmt": { "len": 16, "max": 327, "div": 200, "unit": "volts" }, "name": "Mass air flow sensor voltage, bank 2"}
+  ]},
+{ "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"22": "1223"}, "freq": 1,
+  "signals": [
+    {"id": "NISSAN_REFRIGERANT_FLUID_V", "path": "Battery", "fmt": { "len": 16, "max": 327, "div": 200, "unit": "volts" }, "name": "Refrigerant fluid sensor voltage"}
+  ]},
+{ "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"22": "1225"}, "freq": 1,
+  "signals": [
+    {"id": "NISSAN_UP_OXYGEN_SENS_V", "path": "Battery", "fmt": { "len": 16, "max": 327, "div": 200, "unit": "volts" }, "name": "Upstream oxygen sensor voltage"}
   ]},
 { "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"22": "122B"}, "freq": 30,
   "signals": [
@@ -423,18 +545,112 @@
     {"id": "NISSAN_AC_COMP",        "path": "Engine", "fmt": {"bix": 1, "len": 1, "max": 1, "unit": "offon" }, "name": "Air conditioning compressor"},
     {"id": "NISSAN_IDLE_CTRL_MODE", "path": "Engine", "fmt": {"bix": 6, "len": 1, "max": 1, "unit": "offon" }, "name": "Idle control mode"}
   ]},
+{ "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"22": "130D"}, "freq": 0.25,
+  "signals": [
+    {"id": "NISSAN_BRAKE_SWITCH_NUMBER_2", "path": "Control", "fmt": {"bix": 2, "len": 1, "max": 1, "unit": "offon" }, "name": "BRAKE SWITCH, number 2"},
+    {"id": "NISSAN_BRAKE_SWITCH_NUMBER_1", "path": "Control", "fmt": {"bix": 3, "len": 1, "max": 1, "unit": "offon" }, "name": "BRAKE SWITCH, number 1"}
+  ]},
 { "hdr": "7E0", "rax": "7E8", "din": "C0", "dout": "81", "dbg": true, "cmd": {"22": "1313"}, "freq": 1,
   "signals": [
     {"id": "NISSAN_COOLING_FAN_LOW",  "path": "Engine", "fmt": {"bix": 5, "len": 1, "max": 1, "unit": "offon" }, "name": "Cooling fan low"},
     {"id": "NISSAN_COOLING_FAN_HIGH", "path": "Engine", "fmt": {"bix": 7, "len": 1, "max": 1, "unit": "offon" }, "name": "Cooling fan high"}
   ]},
+{ "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"22": "1406"}, "freq": 5,
+  "signals": [
+    {"id": "NISSAN_ECT_7E0", "path": "Engine", "fmt": { "len": 8, "max": 215, "min": -40, "add": -40, "unit": "celsius" }, "name": "Coolant temperature"}
+  ]},
+{ "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"22": "140E"}, "freq": 1,
+  "signals": [
+    {"id": "NISSAN_MANIFOLD_P", "path": "Engine", "fmt": { "len": 8, "max": 255000, "mul": 1000, "unit": "unknown" }, "name": "Manifold pressure"}
+  ]},
+{ "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"22": "140F"}, "freq": 0.25,
+  "signals": [
+    {"id": "NISSAN_THROTTLE_OPENING", "path": "Engine", "fmt": { "len": 8, "max": 89.25, "mul": 7, "div": 20, "unit": "degrees" }, "name": "Throttle opening"}
+  ]},
+{ "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"22": "2004"}, "freq": 0.25,
+  "signals": [
+    {"id": "NISSAN_ENG_TQ", "path": "Engine", "fmt": { "len": 16, "max": 32367, "min": -400, "div": 2, "add": -400, "unit": "newtonMeters" }, "name": "Engine torque"}
+  ]},
+{ "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"22": "200F"}, "freq": 1,
+  "signals": [
+    {"id": "NISSAN_BRAKING_DETECTED", "path": "Engine", "fmt": { "len": 8, "max": 255, "unit": "scalar" }, "name": "Braking detected multiplex signal"}
+  ]},
+{ "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"22": "2026"}, "freq": 0.25,
+  "signals": [
+    {"id": "NISSAN_WIRED_BRAKE_CONTACT", "path": "Control", "fmt": {"bix": 7, "len": 1, "max": 1, "unit": "offon" }, "name": "Wired brake contact"}
+  ]},
+{ "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"22": "204B"}, "freq": 0.25,
+  "signals": [
+    {"id": "NISSAN_CRUISE_CTRL_SPD", "path": "Movement", "fmt": { "len": 8, "max": 255, "unit": "scalar" }, "name": "Cruise control/speed limiter buttons"}
+  ]},
+{ "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"22": "2079"}, "freq": 0.25,
+  "signals": [
+    {"id": "NISSAN_PARKING_BRAKE",       "path": "Control",      "fmt": {"bix": 3, "len": 1, "max": 1, "unit": "offon" }, "name": "Parking brake"},
+    {"id": "NISSAN_CRUISE_CTRL",         "path": "Engine",       "fmt": {"bix": 4, "len": 1, "max": 1, "unit": "offon" }, "name": "Cruise control"},
+    {"id": "NISSAN_TRACTION_CTRL_ANTI",  "path": "Engine",       "fmt": {"bix": 5, "len": 1, "max": 1, "unit": "offon" }, "name": "Traction control/anti-yaw control"},
+    {"id": "NISSAN_ENGAGE_REVERSE_GEAR", "path": "Transmission", "fmt": {"bix": 6, "len": 1, "max": 1, "unit": "offon" }, "name": "Engage reverse gear"},
+    {"id": "NISSAN_STARTER_BUTTON",      "path": "Engine",       "fmt": {"bix": 7, "len": 1, "max": 1, "unit": "offon" }, "name": "Starter button"}
+  ]},
+{ "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"22": "207A"}, "freq": 1,
+  "signals": [
+    {"id": "NISSAN_DUR_RESUME_BUTTON", "path": "Engine", "fmt": { "len": 16, "max": 3276, "div": 20, "unit": "seconds" }, "name": "Duration of resume button press"}
+  ]},
+{ "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"22": "207B"}, "freq": 1,
+  "signals": [
+    {"id": "NISSAN_DUR_BUTTON_PRESS", "path": "Engine", "fmt": { "len": 16, "max": 3276, "div": 20, "unit": "seconds" }, "name": "Duration of + button press"}
+  ]},
+{ "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"22": "207C"}, "freq": 1,
+  "signals": [
+    {"id": "NISSAN_DUR_BUTTON_PRESS_7E0", "path": "Engine", "fmt": { "len": 16, "max": 3276, "div": 20, "unit": "seconds" }, "name": "Duration of - button press"}
+  ]},
+{ "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"22": "207D"}, "freq": 1,
+  "signals": [
+    {"id": "NISSAN_DUR_SUSPEND_BUTTON", "path": "Engine", "fmt": { "len": 16, "max": 3276, "div": 20, "unit": "seconds" }, "name": "Duration of suspend button press"}
+  ]},
+{ "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"22": "207E"}, "freq": 1,
+  "signals": [
+    {"id": "NISSAN_NUM_ABNORMAL_CC_SL", "path": "Engine", "fmt": { "len": 8, "max": 255, "unit": "scalar" }, "name": "Number of abnormal cc/sl transitions"}
+  ]},
+{ "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"22": "2170"}, "freq": 0.25,
+  "signals": [
+    {"id": "NISSAN_CHANGE_VSS_UNIT", "path": "Movement", "fmt": {"bix": 4, "len": 1, "max": 1, "unit": "offon" }, "name": "Change of vehicle speed unit"},
+    {"id": "NISSAN_AUTO_EMERGENCY",  "path": "Engine",   "fmt": {"bix": 5, "len": 1, "max": 1, "unit": "offon" }, "name": "Auto emergency braking system request"},
+    {"id": "NISSAN_STOP_WARN_LIGHT", "path": "Lights",   "fmt": {"bix": 7, "len": 1, "max": 1, "unit": "offon" }, "name": "Stop warning light"}
+  ]},
+{ "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"22": "2225"}, "freq": 0.25,
+  "signals": [
+    {"id": "NISSAN_VSS_MULTIPLEXED", "path": "Movement", "fmt": {"bix": 7, "len": 1, "max": 1, "unit": "offon" }, "name": "Vehicle speed multiplexed information"}
+  ]},
+{ "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"22": "222B"}, "freq": 0.25,
+  "signals": [
+    {"id": "NISSAN_MANUAL_OR_ASSISTED", "path": "Engine", "fmt": { "len": 8, "max": 255, "unit": "scalar" }, "name": "Manual or assisted parking brake"}
+  ]},
+{ "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"22": "22AA"}, "freq": 3600,
+  "signals": [
+    {"id": "NISSAN_STARTER_WEAR_CNT", "path": "Engine", "fmt": {"bix": 40, "len": 24, "max": 16777215, "unit": "scalar" }, "name": "Starter wear counter"}
+  ]},
+{ "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"22": "2C04"}, "freq": 1,
+  "signals": [
+    {"id": "NISSAN_GEARBOX_RAT", "path": "Transmission", "fmt": { "len": 8, "max": 255, "unit": "scalar" }, "name": "Gearbox ratio"}
+  ]},
 { "hdr": "7E1", "rax": "7E9", "din": "C0", "dout": "81", "dbg": true, "cmd": {"21": "01"}, "freq": 5,
   "signals": [
-    {"id": "NISSAN_OUTPUT_SPD",   "path": "Movement",     "fmt": {"bix": 40,  "len": 16, "max": 65535,                                             "unit": "rpm"        }, "name": "Output speed"},
-    {"id": "NISSAN_TURBINE_SPD",  "path": "Movement",     "fmt": {"bix": 56,  "len": 16, "max": 65535,                                             "unit": "rpm"        }, "name": "Turbine speed"},
-    {"id": "NISSAN_TQ_CONV_SLIP", "path": "Transmission", "fmt": {"bix": 120, "len": 16, "max": 65535,                                             "unit": "rpm"        }, "name": "Torque converter slip"},
-    {"id": "NISSAN_ATF_T_VAR_1",  "path": "Transmission", "fmt": {"bix": 152, "len": 8,  "max": 392,   "min": -67, "mul": 9, "div": 5, "add": -67, "unit": "fahrenheit" }, "name": "Transmission fluid temperature, variant 1"},
-    {"id": "NISSAN_ATF_T_VAR_2",  "path": "Transmission", "fmt": {"bix": 160, "len": 8,  "max": 392,   "min": -67, "mul": 9, "div": 5, "add": -67, "unit": "fahrenheit" }, "name": "Transmission fluid temperature, variant 2"}
+    {"id": "NISSAN_OUTPUT_SPD",   "path": "Movement",     "fmt": {"bix": 40,  "len": 16, "max": 65535,                                                              "unit": "rpm"        }, "name": "Output speed"},
+    {"id": "NISSAN_TURBINE_SPD",  "path": "Movement",     "fmt": {"bix": 56,  "len": 16, "max": 65535,                                                              "unit": "rpm"        }, "name": "Turbine speed"},
+    {"id": "NISSAN_TQ_CONV_SLIP", "path": "Transmission", "fmt": {"bix": 120, "len": 16, "max": 32767, "min": -32768,                                 "sign": true, "unit": "rpm"        }, "name": "Torque converter slip"},
+    {"id": "NISSAN_ATF_T_VAR_1",  "path": "Transmission", "fmt": {"bix": 152, "len": 8,  "max": 392,   "min": -67,    "mul": 9, "div": 5, "add": -67,               "unit": "fahrenheit" }, "name": "Transmission fluid temperature, variant 1"},
+    {"id": "NISSAN_ATF_T_VAR_2",  "path": "Transmission", "fmt": {"bix": 160, "len": 8,  "max": 392,   "min": -67,    "mul": 9, "div": 5, "add": -67,               "unit": "fahrenheit" }, "name": "Transmission fluid temperature, variant 2"}
+  ]},
+{ "hdr": "7E1", "rax": "7E9", "din": "C0", "dout": "81", "dbg": true, "cmd": {"21": "03"}, "freq": 1,
+  "signals": [
+    {"id": "NISSAN_TRANS_ATF", "path": "Transmission", "fmt": { "len": 32, "max": 4294967295, "unit": "scalar" }, "name": "Transmission ATF deterioration date"}
+  ]},
+{ "hdr": "7E1", "rax": "7E9", "din": "C0", "dout": "81", "dbg": true, "cmd": {"21": "10"}, "freq": 1,
+  "signals": [
+    {"id": "NISSAN_TRANS_B",                   "path": "Transmission", "fmt": {            "len": 16, "max": 65535,           "unit": "scalar" }, "name": "Transmission-B"},
+    {"id": "NISSAN_TRANS_WORK_HOURS",          "path": "Transmission", "fmt": {"bix": 32,  "len": 16, "max": 10922, "div": 6, "unit": "hours"  }, "name": "Transmission work hours"},
+    {"id": "NISSAN_TRANS",                     "path": "Transmission", "fmt": {"bix": 64,  "len": 8,  "max": 255,             "unit": "scalar" }, "name": "Transmission-A"},
+    {"id": "NISSAN_TRANS_WORK_HOURS_WARM_ENG", "path": "Transmission", "fmt": {"bix": 192, "len": 16, "max": 10922, "div": 6, "unit": "hours"  }, "name": "Transmission work hours warm engine"}
   ]},
 { "hdr": "7E1", "rax": "7E9", "din": "C0", "dout": "81", "dbg": true, "cmd": {"22": "1101"}, "freq": 1,
   "signals": [
@@ -607,6 +823,74 @@
 { "hdr": "7E1", "rax": "7E9", "din": "C0", "dout": "81", "dbg": true, "cmd": {"22": "1223"}, "freq": 1,
   "signals": [
     {"id": "NISSAN_TCM_SEL_SOL_MON", "path": "Transmission", "fmt": { "len": 8, "max": 0.255, "div": 1000, "unit": "amps" }, "name": "Select solenoid monitor current"}
+  ]},
+{ "hdr": "DA18", "rax": "18", "dbg": true, "cmd": {"22": "1105"}, "freq": 1,
+  "signals": [
+    {"id": "NISSAN_EGR_T_SENS_V", "path": "Battery", "fmt": { "len": 8, "max": 5.1, "div": 50, "unit": "volts" }, "name": "Exhaust gas recirculation temperature sensor voltage"}
+  ]},
+{ "hdr": "DA18", "rax": "18", "dbg": true, "cmd": {"22": "1111"}, "freq": 5,
+  "signals": [
+    {"id": "NISSAN_FUEL_T", "path": "Fuel", "fmt": { "len": 8, "max": 205, "min": -50, "add": -50, "unit": "celsius" }, "name": "Fuel temperature"}
+  ]},
+{ "hdr": "DA18", "rax": "18", "dbg": true, "cmd": {"22": "1114"}, "freq": 30,
+  "signals": [
+    {"id": "NISSAN_FLI_INPUT", "path": "Fuel", "fmt": { "len": 8, "max": 10.2, "div": 25, "unit": "volts" }, "name": "Fuel level input"}
+  ]},
+{ "hdr": "DA18", "rax": "18", "dbg": true, "cmd": {"22": "1115"}, "freq": 1,
+  "signals": [
+    {"id": "NISSAN_EVAP_P_SENS_V", "path": "Battery", "fmt": { "len": 8, "max": 5.1, "div": 50, "unit": "volts" }, "name": "EVAP pressure sensor voltage"}
+  ]},
+{ "hdr": "DA18", "rax": "18", "dbg": true, "cmd": {"22": "111F"}, "freq": 5,
+  "signals": [
+    {"id": "NISSAN_EOT", "path": "Engine", "fmt": { "len": 8, "max": 205, "min": -50, "add": -50, "unit": "celsius" }, "name": "Engine oil temperature"}
+  ]},
+{ "hdr": "DA18", "rax": "18", "dbg": true, "cmd": {"22": "1207"}, "freq": 1,
+  "signals": [
+    {"id": "NISSAN_BASE_INJ_TIM", "path": "Engine", "fmt": { "len": 16, "max": 31.99, "div": 2048, "unit": "milliseconds" }, "name": "Base injection timing"}
+  ]},
+{ "hdr": "DA18", "rax": "18", "dbg": true, "cmd": {"22": "120C"}, "freq": 1,
+  "signals": [
+    {"id": "NISSAN_FUEL_P_SENS_V", "path": "Battery", "fmt": { "len": 16, "max": 20, "mul": 4, "div": 13107, "unit": "volts" }, "name": "Fuel pressure sensor voltage"}
+  ]},
+{ "hdr": "DA18", "rax": "18", "dbg": true, "cmd": {"22": "120D"}, "freq": 0.25,
+  "signals": [
+    {"id": "NISSAN_ACCEL_PEDAL_POS_SENS_1", "path": "Battery", "fmt": { "len": 16, "max": 327, "div": 200, "unit": "volts" }, "name": "Accelerator pedal position sensor 1, volts"}
+  ]},
+{ "hdr": "DA18", "rax": "18", "dbg": true, "cmd": {"22": "120E"}, "freq": 0.25,
+  "signals": [
+    {"id": "NISSAN_ACCEL_PEDAL_POS_SENS_2", "path": "Battery", "fmt": { "len": 16, "max": 327, "div": 200, "unit": "volts" }, "name": "Accelerator pedal position sensor 2, volts"}
+  ]},
+{ "hdr": "DA18", "rax": "18", "dbg": true, "cmd": {"22": "120F"}, "freq": 0.25,
+  "signals": [
+    {"id": "NISSAN_THROTTLE_POS_SENS_1", "path": "Battery", "fmt": { "len": 16, "max": 327, "div": 200, "unit": "volts" }, "name": "Throttle position sensor 1, volts"}
+  ]},
+{ "hdr": "DA18", "rax": "18", "dbg": true, "cmd": {"22": "1210"}, "freq": 0.25,
+  "signals": [
+    {"id": "NISSAN_THROTTLE_POS_SENS_2", "path": "Battery", "fmt": { "len": 16, "max": 327, "div": 200, "unit": "volts" }, "name": "Throttle position sensor 2, volts"}
+  ]},
+{ "hdr": "DA18", "rax": "18", "dbg": true, "cmd": {"22": "121F"}, "freq": 1,
+  "signals": [
+    {"id": "NISSAN_ROLL_OVER_SENS_V", "path": "Battery", "fmt": { "len": 16, "max": 327, "div": 200, "unit": "volts" }, "name": "Roll-over sensor voltage"}
+  ]},
+{ "hdr": "DA18", "rax": "18", "dbg": true, "cmd": {"22": "2170"}, "freq": 5,
+  "signals": [
+    {"id": "NISSAN_ATF_T", "path": "Transmission", "fmt": {"bix": 232, "len": 8, "max": 215, "min": -40, "add": -40, "unit": "celsius" }, "name": "Transmission fluid temperature"}
+  ]},
+{ "hdr": "DA2D", "rax": "2D", "dbg": true, "cmd": {"22": "4B00"}, "freq": 0.25,
+  "signals": [
+    {"id": "NISSAN_FL_WHL_SPD", "path": "Tires", "fmt": { "len": 16, "max": 655, "div": 100, "unit": "kilometersPerHour" }, "name": "Front left wheel speed"}
+  ]},
+{ "hdr": "DA2D", "rax": "2D", "dbg": true, "cmd": {"22": "4B01"}, "freq": 0.25,
+  "signals": [
+    {"id": "NISSAN_FR_WHL_SPD", "path": "Tires", "fmt": { "len": 16, "max": 655, "div": 100, "unit": "kilometersPerHour" }, "name": "Front right wheel speed"}
+  ]},
+{ "hdr": "DA2D", "rax": "2D", "dbg": true, "cmd": {"22": "4B02"}, "freq": 0.25,
+  "signals": [
+    {"id": "NISSAN_RL_WHL_SPD", "path": "Tires", "fmt": { "len": 16, "max": 655, "div": 100, "unit": "kilometersPerHour" }, "name": "Rear left wheel speed"}
+  ]},
+{ "hdr": "DA2D", "rax": "2D", "dbg": true, "cmd": {"22": "4B03"}, "freq": 0.25,
+  "signals": [
+    {"id": "NISSAN_RR_WHL_SPD", "path": "Tires", "fmt": { "len": 16, "max": 655, "div": 100, "unit": "kilometersPerHour" }, "name": "Rear right wheel speed"}
   ]},
 { "hdr": "DADA", "rax": "DAF1DA", "fcm1": true, "dbg": true, "cmd": {"22": "2003"}, "freq": 0.25,
   "signals": [
