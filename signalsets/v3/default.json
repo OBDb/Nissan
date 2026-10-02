@@ -43,7 +43,8 @@
   ]},
 { "hdr": "743", "rax": "763", "fcm1": true, "dbg": true, "cmd": {"22": "0E01"}, "freq": 30,
   "signals": [
-    {"id": "NISSAN_ODO", "path": "Trips", "fmt": { "len": 24, "max": 16777215, "unit": "miles" }, "name": "Odometer", "suggestedMetric": "odometer"}
+    {"id": "NISSAN_ODO",       "path": "Trips", "fmt": { "len": 24, "max": 16777215, "unit": "kilometers" }, "name": "Odometer", "suggestedMetric": "odometer"},
+    {"id": "NISSAN_ODO_PRE25", "path": "Trips", "fmt": { "len": 24, "max": 16777215, "unit": "miles"      }, "name": "Odometer", "suggestedMetric": "odometer"}
   ]},
 { "hdr": "743", "rax": "763", "fcm1": true, "dbg": true, "cmd": {"22": "0E25"}, "freq": 15,
   "signals": [
