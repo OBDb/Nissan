@@ -497,6 +497,26 @@
     {"id": "NISSAN_EFP_LEARNING",       "path": "Engine",  "fmt": {"bix": 184, "len": 16, "max": 0.5,   "min": -0.5,                   "div": 65535, "add": -0.5, "unit": "percent"        }, "name": "Electric fuel pump learning value"},
     {"id": "NISSAN_BUTANE_PERCENTAGE",  "path": "Engine",  "fmt": {"bix": 200, "len": 8,  "max": 99.61,              "mul": 7813,      "div": 20000,              "unit": "percent"        }, "name": "Butane percentage"}
   ]},
+{ "hdr": "7E0", "rax": "7E8", "din": "C0", "dout": "81", "dbg": true, "cmd": {"22": "110A"}, "freq": 1,
+  "signals": [
+    {"id": "NISSAN_IGN_TIM_ADVANCE", "path": "Engine", "fmt": { "len": 8, "max": 110, "min": -145, "mul": -1, "add": 110, "unit": "degrees" }, "name": "Ignition timing advance"}
+  ]},
+{ "hdr": "7E0", "rax": "7E8", "din": "C0", "dout": "81", "dbg": true, "cmd": {"22": "1110"}, "freq": 1,
+  "signals": [
+    {"id": "NISSAN_EVAP_PURGE_DUTY", "path": "Engine", "fmt": { "len": 8, "max": 127, "div": 2, "unit": "percent" }, "name": "EVAP purge duty"}
+  ]},
+{ "hdr": "7E0", "rax": "7E8", "din": "C0", "dout": "81", "dbg": true, "cmd": {"22": "1111"}, "freq": 5,
+  "signals": [
+    {"id": "NISSAN_FUEL_T", "path": "Fuel", "fmt": { "len": 8, "max": 205, "min": -50, "add": -50, "unit": "celsius" }, "name": "Fuel temperature"}
+  ]},
+{ "hdr": "7E0", "rax": "7E8", "din": "C0", "dout": "81", "dbg": true, "cmd": {"22": "111F"}, "freq": 5,
+  "signals": [
+    {"id": "NISSAN_VARIABLE_VLV_TIM_OIL_T", "path": "Engine", "fmt": { "len": 8, "max": 205, "min": -50, "add": -50, "unit": "celsius" }, "name": "Variable valve timing oil temperature"}
+  ]},
+{ "hdr": "7E0", "rax": "7E8", "din": "C0", "dout": "81", "dbg": true, "cmd": {"22": "1123"}, "freq": 1,
+  "signals": [
+    {"id": "NISSAN_F_RAT_ADJ_B1", "path": "Engine", "fmt": { "len": 8, "max": 155, "min": -100, "add": -100, "unit": "percent" }, "name": "A/F ratio adj, B1"}
+  ]},
 { "hdr": "7E0", "rax": "7E8", "din": "C0", "dout": "81", "dbg": true, "cmd": {"22": "1124"}, "freq": 1,
   "signals": [
     {"id": "NISSAN_AF_ADJ_B2", "path": "Fuel", "fmt": { "len": 8, "max": 155, "min": -100, "add": -100, "unit": "percent" }, "name": "Air/fuel ratio adjustment, bank 2"}
@@ -505,9 +525,17 @@
   "signals": [
     {"id": "NISSAN_MANIFOLD_P_SENS_V", "path": "Battery", "fmt": { "len": 8, "max": 5.1, "div": 50, "unit": "volts" }, "name": "Manifold pressure sensor voltage"}
   ]},
+{ "hdr": "7E0", "rax": "7E8", "din": "C0", "dout": "81", "dbg": true, "cmd": {"22": "1135"}, "freq": 1,
+  "signals": [
+    {"id": "NISSAN_CAM_ADV_ANG_B1", "path": "Engine", "fmt": { "len": 8, "max": 63.5, "min": -64, "div": 2, "add": -64, "unit": "degrees" }, "name": "Camshaft adv angle, B1"}
+  ]},
 { "hdr": "7E0", "rax": "7E8", "din": "C0", "dout": "81", "dbg": true, "cmd": {"22": "1137"}, "freq": 1,
   "signals": [
     {"id": "NISSAN_CAM_ADV_B2", "path": "Engine", "fmt": { "len": 8, "max": 63.5, "min": -64, "div": 2, "add": -64, "unit": "degrees" }, "name": "Intake camshaft advance, bank 2"}
+  ]},
+{ "hdr": "7E0", "rax": "7E8", "din": "C0", "dout": "81", "dbg": true, "cmd": {"22": "1138"}, "freq": 1,
+  "signals": [
+    {"id": "NISSAN_CAM_VLV_DUTY_B1", "path": "Engine", "fmt": { "len": 8, "max": 99.6, "mul": 25, "div": 64, "unit": "percent" }, "name": "Camshaft valve duty, B1"}
   ]},
 { "hdr": "7E0", "rax": "7E8", "din": "C0", "dout": "81", "dbg": true, "cmd": {"22": "1139"}, "freq": 1,
   "signals": [
@@ -521,9 +549,25 @@
   "signals": [
     {"id": "NISSAN_REMAINING_FUEL", "path": "Fuel", "fmt": { "len": 8, "max": 255, "unit": "liters" }, "name": "Remaining fuel"}
   ]},
+{ "hdr": "7E0", "rax": "7E8", "din": "C0", "dout": "81", "dbg": true, "cmd": {"22": "1201"}, "freq": 0.25,
+  "signals": [
+    {"id": "NISSAN_CURRENT_RPM", "path": "Movement", "fmt": { "len": 16, "max": 819187, "mul": 25, "div": 2, "unit": "rpm" }, "name": "Current engine speed"}
+  ]},
+{ "hdr": "7E0", "rax": "7E8", "din": "C0", "dout": "81", "dbg": true, "cmd": {"22": "1204"}, "freq": 1,
+  "signals": [
+    {"id": "NISSAN_MAF_VOLTS_B1", "path": "Battery", "fmt": { "len": 16, "max": 327, "div": 200, "unit": "volts" }, "name": "Mass air flow volts, B1"}
+  ]},
 { "hdr": "7E0", "rax": "7E8", "din": "C0", "dout": "81", "dbg": true, "cmd": {"22": "1205"}, "freq": 1,
   "signals": [
     {"id": "NISSAN_MAF_V_B2", "path": "Engine", "fmt": { "len": 16, "max": 327, "div": 200, "unit": "volts" }, "name": "Mass air flow sensor voltage, bank 2"}
+  ]},
+{ "hdr": "7E0", "rax": "7E8", "din": "C0", "dout": "81", "dbg": true, "cmd": {"22": "1208"}, "freq": 1,
+  "signals": [
+    {"id": "NISSAN_FUEL_BASE_WIDTH", "path": "Fuel", "fmt": { "len": 16, "max": 31.99, "div": 2048, "unit": "milliseconds" }, "name": "Fuel base pulse width"}
+  ]},
+{ "hdr": "7E0", "rax": "7E8", "din": "C0", "dout": "81", "dbg": true, "cmd": {"22": "1209"}, "freq": 1,
+  "signals": [
+    {"id": "NISSAN_MAF", "path": "Engine", "fmt": { "len": 16, "max": 655, "div": 100, "unit": "gramsPerSecond" }, "name": "Mass air flow"}
   ]},
 { "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"22": "1223"}, "freq": 1,
   "signals": [
@@ -540,6 +584,10 @@
 { "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"22": "1266"}, "freq": 5,
   "signals": [
     {"id": "NISSAN_VVT_EOT", "path": "Engine", "fmt": { "len": 16, "max": 1262, "min": -273, "mul": 3, "div": 128, "add": -273, "unit": "celsius" }, "name": "Variable valve timing oil temperature"}
+  ]},
+{ "hdr": "7E0", "rax": "7E8", "din": "C0", "dout": "81", "dbg": true, "cmd": {"22": "1305"}, "freq": 0.25,
+  "signals": [
+    {"id": "NISSAN_BRAKE_SWITCH", "path": "Control", "fmt": {"bix": 5, "len": 1, "max": 1, "unit": "scalar" }, "name": "Brake switch"}
   ]},
 { "hdr": "7E0", "rax": "7E8", "din": "C0", "dout": "81", "dbg": true, "cmd": {"22": "1307"}, "freq": 1,
   "signals": [
@@ -831,7 +879,7 @@
   ]},
 { "hdr": "DA18", "rax": "18", "dbg": true, "cmd": {"22": "1111"}, "freq": 5,
   "signals": [
-    {"id": "NISSAN_FUEL_T", "path": "Fuel", "fmt": { "len": 8, "max": 205, "min": -50, "add": -50, "unit": "celsius" }, "name": "Fuel temperature"}
+    {"id": "NISSAN_FUEL_T_V2", "path": "Fuel", "fmt": { "len": 8, "max": 205, "min": -50, "add": -50, "unit": "celsius" }, "name": "Fuel temperature"}
   ]},
 { "hdr": "DA18", "rax": "18", "dbg": true, "cmd": {"22": "1114"}, "freq": 30,
   "signals": [
