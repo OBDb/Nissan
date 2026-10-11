@@ -660,6 +660,10 @@
   "signals": [
     {"id": "NISSAN_NUM_ABNORMAL_CC_SL", "path": "Engine", "fmt": { "len": 8, "max": 255, "unit": "scalar" }, "name": "Number of abnormal cc/sl transitions"}
   ]},
+{ "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"22": "2095"}, "freq": 5,
+  "signals": [
+    {"id": "NISSAN_EOT_V2", "path": "Engine", "fmt": { "len": 8, "max": 143, "min": -48, "mul": 3, "div": 4, "add": -48, "unit": "celsius" }, "name": "Engine oil temperature"}
+  ]},
 { "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"22": "2170"}, "freq": 0.25,
   "signals": [
     {"id": "NISSAN_CHANGE_VSS_UNIT", "path": "Movement", "fmt": {"bix": 4, "len": 1, "max": 1, "unit": "offon" }, "name": "Change of vehicle speed unit"},
@@ -700,6 +704,14 @@
     {"id": "NISSAN_TRANS_WORK_HOURS",          "path": "Transmission", "fmt": {"bix": 32,  "len": 16, "max": 10922, "div": 6, "unit": "hours"  }, "name": "Transmission work hours"},
     {"id": "NISSAN_TRANS",                     "path": "Transmission", "fmt": {"bix": 64,  "len": 8,  "max": 255,             "unit": "scalar" }, "name": "Transmission-A"},
     {"id": "NISSAN_TRANS_WORK_HOURS_WARM_ENG", "path": "Transmission", "fmt": {"bix": 192, "len": 16, "max": 10922, "div": 6, "unit": "hours"  }, "name": "Transmission work hours warm engine"}
+  ]},
+{ "hdr": "7E1", "rax": "7E9", "dbg": true, "cmd": {"21": "30"}, "freq": 5,
+  "signals": [
+    {"id": "NISSAN_ATF_T_VAR_2_7E1", "path": "Transmission", "fmt": {"bix": 88, "len": 8, "max": 401, "min": -58, "mul": 9, "div": 5, "add": -58, "unit": "fahrenheit" }, "name": "Transmission fluid temperature, variant 2"}
+  ]},
+{ "hdr": "7E1", "rax": "7E9", "dbg": true, "cmd": {"22": "0230"}, "freq": 5,
+  "signals": [
+    {"id": "NISSAN_ATF_T_VAR_1_7E1", "path": "Transmission", "fmt": {"bix": 88, "len": 8, "max": 401, "min": -58, "mul": 9, "div": 5, "add": -58, "unit": "fahrenheit" }, "name": "Transmission fluid temperature, variant 1"}
   ]},
 { "hdr": "7E1", "rax": "7E9", "din": "C0", "dout": "81", "dbg": true, "cmd": {"22": "1101"}, "freq": 1,
   "signals": [
