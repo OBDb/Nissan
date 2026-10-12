@@ -773,7 +773,7 @@
   ]},
 { "hdr": "7E1", "rax": "7E9", "din": "C0", "dout": "81", "dbg": true, "cmd": {"22": "1114"}, "freq": 1,
   "signals": [
-    {"id": "NISSAN_TCM_REQ_RPM", "path": "Transmission", "fmt": { "len": 8, "max": 12750, "mul": 50, "unit": "rpm" }, "name": "Requested engine speed"}
+    {"id": "NISSAN_TCM_REQ_RPM", "path": "Transmission", "fmt": { "len": 8, "max": 12750, "mul": 50, "nullmax": 12700, "unit": "rpm" }, "name": "Requested engine speed"}
   ]},
 { "hdr": "7E1", "rax": "7E9", "din": "C0", "dout": "81", "dbg": true, "cmd": {"22": "1201"}, "freq": 0.25,
   "signals": [
@@ -873,7 +873,7 @@
   ]},
 { "hdr": "7E1", "rax": "7E9", "din": "C0", "dout": "81", "dbg": true, "cmd": {"22": "121E"}, "freq": 1,
   "signals": [
-    {"id": "NISSAN_TCM_SOL_MON_1", "path": "Transmission", "fmt": { "len": 8, "max": 0.255, "div": 1000, "unit": "amps" }, "name": "Solenoid 1 monitor current"}
+    {"id": "NISSAN_TCM_SOL_MON_1", "path": "Transmission", "fmt": { "len": 16, "max": 65.535, "div": 1000, "unit": "amps" }, "name": "Solenoid 1 monitor current"}
   ]},
 { "hdr": "7E1", "rax": "7E9", "din": "C0", "dout": "81", "dbg": true, "cmd": {"22": "121F"}, "freq": 1,
   "signals": [
