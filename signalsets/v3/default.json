@@ -266,6 +266,10 @@
   "signals": [
     {"id": "NISSAN_AUX_PWR", "path": "Battery.Draw", "fmt": { "len": 8, "max": 25500, "mul": 100, "unit": "watts" }, "name": "Power used by auxiliary equipment (lights, radio, navigation, rear defroster, etc...)."}
   ]},
+{ "hdr": "797", "rax": "79A", "fcm1": true, "dbg": true, "cmd": {"22": "1155"}, "freq": 30,
+  "signals": [
+    {"id": "NISSAN_RANGE_DISP", "path": "Trips", "fmt": { "len": 16, "max": 6553.5, "div": 10, "unit": "kilometers" }, "name": "Range shown on the display", "suggestedMetric": "fuelRange"}
+  ]},
 { "hdr": "797", "rax": "79A", "fcm1": true, "dbg": true, "cmd": {"22": "1156"}, "freq": 1,
   "signals": [
     {"id": "NISSAN_GEAR", "path": "Engine", "name": "Gear", "fmt": {"len": 8, "map": {
