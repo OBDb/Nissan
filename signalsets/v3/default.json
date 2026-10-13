@@ -2,6 +2,7 @@
     { "hdr": "743",  "type": "cluster" },
     { "hdr": "7E0",  "type": "engine" },
     { "hdr": "7E1",  "type": "transmission" },
+    { "hdr": "DA18", "type": "transmission" },
     { "hdr": "DA2D", "type": "abs" }
   ],
   "commands": [
