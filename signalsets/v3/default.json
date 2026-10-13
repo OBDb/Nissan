@@ -737,11 +737,13 @@
   ]},
 { "hdr": "7E1", "rax": "7E9", "din": "C0", "dout": "81", "dbg": true, "cmd": {"22": "110A"}, "freq": 1,
   "signals": [
-    {"id": "NISSAN_TCM_SEC_P", "path": "Transmission", "fmt": { "len": 16, "max": 1638375, "mul": 25, "unit": "kilopascal" }, "name": "Secondary pulley pressure"}
+    {"id": "NISSAN_TCM_SEC_P",     "path": "Transmission", "fmt": { "len": 16, "max": 1638375, "mul": 25, "unit": "kilopascal" }, "name": "Secondary pulley pressure"},
+    {"id": "NISSAN_TCM_SEC_P_RAW", "path": "Transmission", "fmt": { "len": 8,  "max": 255,                "unit": "scalar"     }, "name": "Secondary pulley pressure count"}
   ]},
 { "hdr": "7E1", "rax": "7E9", "din": "C0", "dout": "81", "dbg": true, "cmd": {"22": "110B"}, "freq": 1,
   "signals": [
-    {"id": "NISSAN_TCM_PRI_P", "path": "Transmission", "fmt": { "len": 16, "max": 1638375, "mul": 25, "unit": "kilopascal" }, "name": "Primary pulley pressure"}
+    {"id": "NISSAN_TCM_PRI_P",     "path": "Transmission", "fmt": { "len": 16, "max": 1638375, "mul": 25, "unit": "kilopascal" }, "name": "Primary pulley pressure"},
+    {"id": "NISSAN_TCM_PRI_P_RAW", "path": "Transmission", "fmt": { "len": 8,  "max": 255,                "unit": "scalar"     }, "name": "Primary pulley pressure count"}
   ]},
 { "hdr": "7E1", "rax": "7E9", "din": "C0", "dout": "81", "dbg": true, "cmd": {"22": "110C"}, "freq": 5,
   "signals": [
