@@ -315,7 +315,7 @@
   ]},
 { "hdr": "797", "rax": "79A", "fcm1": true, "dbg": true, "cmd": {"22": "1156"}, "freq": 1,
   "signals": [
-    {"id": "NISSAN_GEAR", "path": "Engine", "name": "Gear", "fmt": {"len": 8, "map": {
+    {"id": "NISSAN_GEAR", "path": "Engine", "name": "Gear", "suggestedMetric": "gearSelector", "fmt": {"len": 8, "map": {
           "1": { "description": "Park",    "value": "PARK" },
           "2": { "description": "Reverse", "value": "REVERSE" },
           "3": { "description": "Neutral", "value": "NEUTRAL" },
@@ -636,7 +636,7 @@
   ]},
 { "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"22": "122B"}, "freq": 30,
   "signals": [
-    {"id": "NISSAN_CC_S", "path": "Cruise control", "fmt": { "len": 16, "max": 3686, "mul": 9, "div": 160, "unit": "kilometersPerHour" }, "name": "Cruise control set speed"}
+    {"id": "NISSAN_CC_S", "path": "Cruise control", "fmt": { "len": 16, "max": 3686, "mul": 9, "div": 160, "unit": "kilometersPerHour" }, "name": "Cruise control set speed", "suggestedMetric": "cruiseSetSpeed"}
   ]},
 { "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"22": "1266"}, "freq": 5,
   "signals": [
